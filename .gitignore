@@ -1,0 +1,11 @@
+.sass-cache
+.DS_Store*
+node_modules/
+bower_components/
+npm-debug.log
+.cache
+.idea
+.idea_modules
+dist/
+package-lock.json
+yarn-error.log
