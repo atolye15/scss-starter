@@ -1,5 +1,6 @@
 {
   "docs": {
     "Getting Started": ["installation"],
+    "Utilities": ["utilities/predefined-classes", "utilities/responsive", "utilities/customizing"]
   }
 }
