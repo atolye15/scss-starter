@@ -437,17 +437,19 @@ $g-utilities: (
   ),
   'display': (
     property: display,
-    values: block
-      (
-        value: none,
-        responsive: true,
-      )
-      inline inline-block table table-row table-cell
-      (
-        value: flex,
-        responsive: true,
-      )
-      inline-flex,
+    values: (
+      value: block,
+      responsive: true,
+    )
+    (
+      value: none,
+      responsive: true,
+    )
+    (
+      value: flex,
+      responsive: true,
+    )
+    inline inline-block table table-row table-cell inline-flex,
   ),
   'flex': (
     property: flex,
