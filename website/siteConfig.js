@@ -23,8 +23,8 @@
 const siteConfig = {
   title: 'SCSS starter', // Title for your website.
   tagline: 'SCSS starter for a web project.',
-  // url: 'https://your-docusaurus-test-site.com', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  url: 'https://atolye15.github.io', // Your website URL
+  baseUrl: '/scss-starter/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
