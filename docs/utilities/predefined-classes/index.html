@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Predefined Classes · SCSS starter</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="These are helper classes that can speed up your development and reduce CSS property declarations."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Predefined Classes · SCSS starter"/><meta property="og:type" content="website"/><meta property="og:url" content="https://atolye15.github.io/"/><meta property="og:description" content="These are helper classes that can speed up your development and reduce CSS property declarations."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/undefined"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><h2 class="headerTitle">SCSS starter</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/installation" target="_self">Docs</a></li><li class=""><a href="https://github.com/atolye15/scss-starter" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Utilities</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/installation">Installation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Utilities</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/utilities/predefined-classes">Predefined Classes</a></li><li class="navListItem"><a class="navItem" href="/docs/utilities/responsive">Responsive</a></li><li class="navListItem"><a class="navItem" href="/docs/utilities/customizing">Customizing</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Predefined Classes</h1></header><article><div><span><p>These are helper classes that can speed up your development and reduce CSS property declarations.</p>
+<blockquote>
+<p>Utility classes use <code>!important</code> declarations to override any other styles, so exercise caution when using them.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="declarative-classes"></a><a href="#declarative-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declarative Classes</h2>
+<p>Most of the utility classes are named declaratively. Namely, the format of the utility class names are like this <code>.u-{property}-{value}</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="common"></a><a href="#common" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common</h3>
+<ul>
+<li><code>.u-table-layout-fixed</code></li>
+<li><code>.u-overflow-hidden</code></li>
+<li><code>.u-border-radius-50%</code></li>
+<li><code>.u-position-static</code></li>
+<li><code>.u-position-relative</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="float"></a><a href="#float" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Float</h3>
+<ul>
+<li><code>.u-float-right</code></li>
+<li><code>.u-float-left</code></li>
+<li><code>.u-float-none</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="interactivity"></a><a href="#interactivity" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interactivity</h3>
+<ul>
+<li><code>.u-pointer-events-none</code></li>
+<li><code>.u-cursor-pointer</code></li>
+<li><code>.u-user-select-none</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="colors"></a><a href="#colors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Colors</h3>
+<p>The color utility classes are named using the format <code>.u-{property}-{color-variable}</code>. The color variables stored in <code>abstracts/_colors.scss</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id="text-colors"></a><a href="#text-colors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Text Colors</h4>
+<ul>
+<li><code>.u-color-muted</code></li>
+<li><code>.u-color-primary</code></li>
+<li><code>.u-color-success</code></li>
+<li><code>.u-color-alert</code></li>
+<li><code>.u-color-warning</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="background-colors"></a><a href="#background-colors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Background Colors</h4>
+<ul>
+<li><code>.u-background-color-primary</code></li>
+<li><code>.u-background-color-success</code></li>
+<li><code>.u-background-color-alert</code></li>
+<li><code>.u-background-color-warning</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="display"></a><a href="#display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Display</h3>
+<p>Responsive variations also exist for <code>.u-display-block</code>, <code>.u-display-flex</code> and <code>.u-display-none</code>.</p>
+<ul>
+<li><code>.u-display-block</code></li>
+<li><code>.u-display-inline-block</code></li>
+<li><code>.u-display-inline</code></li>
+<li><code>.u-display-table</code></li>
+<li><code>.u-display-table-row</code></li>
+<li><code>.u-display-table-cell</code></li>
+<li><code>.u-display-flex</code></li>
+<li><code>.u-display-inline-flex</code></li>
+<li><code>.u-display-none</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="flexbox"></a><a href="#flexbox" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flexbox</h3>
+<h4><a class="anchor" aria-hidden="true" id="flex"></a><a href="#flex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flex</h4>
+<ul>
+<li><code>.u-flex-1</code></li>
+<li><code>.u-flex-none</code></li>
+<li><code>.u-flex-grow-1</code></li>
+<li><code>.u-flex-shrink-0</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="direction"></a><a href="#direction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Direction</h4>
+<ul>
+<li><code>.u-flex-direction-row</code></li>
+<li><code>.u-flex-direction-row-reverse</code></li>
+<li><code>.u-flex-direction-column</code></li>
+<li><code>.u-flex-direction-column-reverse</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="wrap"></a><a href="#wrap" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wrap</h4>
+<ul>
+<li><code>.u-flex-wrap-no-wrap</code></li>
+<li><code>.u-flex-wrap-wrap</code></li>
+<li><code>.u-flex-wrap-wrap-reverse</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="justify-content"></a><a href="#justify-content" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Justify Content</h4>
+<ul>
+<li><code>.u-justify-content-flex-start</code></li>
+<li><code>.u-justify-content-center</code></li>
+<li><code>.u-justify-content-flex-end</code></li>
+<li><code>.u-justify-content-space-between</code></li>
+<li><code>.u-justify-content-space-around</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="align-items"></a><a href="#align-items" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Align Items</h4>
+<ul>
+<li><code>.u-align-items-stretch</code></li>
+<li><code>.u-align-items-flex-start</code></li>
+<li><code>.u-align-items-center</code></li>
+<li><code>.u-align-items-flex-end</code></li>
+<li><code>.u-align-items-baseline</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="align-content"></a><a href="#align-content" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Align Content</h4>
+<ul>
+<li><code>.u-align-content-stretch</code></li>
+<li><code>.u-align-content-flex-start</code></li>
+<li><code>.u-align-content-center</code></li>
+<li><code>.u-align-content-flex-end</code></li>
+<li><code>.u-align-content-space-between</code></li>
+<li><code>.u-align-content-space-around</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="align-self"></a><a href="#align-self" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Align Self</h4>
+<ul>
+<li><code>.u-align-self-auto</code></li>
+<li><code>.u-align-self-flex-start</code></li>
+<li><code>.u-align-self-center</code></li>
+<li><code>.u-align-self-flex-end</code></li>
+<li><code>.u-align-self-stretch</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="sizing"></a><a href="#sizing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sizing</h3>
+<p>Responsive variations also exist for <code>.u-width-100%</code> and <code>.u-width-auto</code>.</p>
+<ul>
+<li><code>.u-max-width-100%</code></li>
+<li><code>.u-min-width-0</code></li>
+<li><code>.u-min-width-100%</code></li>
+<li><code>.u-width-100%</code></li>
+<li><code>.u-width-auto</code></li>
+<li><code>.u-width-50%</code></li>
+<li><code>.u-height-100%</code></li>
+<li><code>.u-height-100vh</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="font-sizing"></a><a href="#font-sizing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Font Sizing</h3>
+<p>The font size utility classes are named using the format <code>.u-{property}-{font-size-variable}</code>. The font size variables stored in <code>abstracts/_variables.scss</code>.</p>
+<ul>
+<li><code>.u-font-size-2xsmall</code></li>
+<li><code>.u-font-size-xsmall</code></li>
+<li><code>.u-font-size-small</code></li>
+<li><code>.u-font-size-base</code></li>
+<li><code>.u-font-size-medium</code></li>
+<li><code>.u-font-size-large</code></li>
+<li><code>.u-font-size-xlarge</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="text"></a><a href="#text" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Text</h3>
+<h4><a class="anchor" aria-hidden="true" id="alignment"></a><a href="#alignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alignment</h4>
+<ul>
+<li><code>.u-text-align-left</code></li>
+<li><code>.u-text-align-right</code></li>
+<li><code>.u-text-align-center</code></li>
+<li><code>.u-text-align-justify</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="transformation"></a><a href="#transformation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transformation</h4>
+<ul>
+<li><code>.u-text-transform-lowercase</code></li>
+<li><code>.u-text-transform-uppercase</code></li>
+<li><code>.u-text-transform-capitalize</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="font-weights"></a><a href="#font-weights" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Font Weights</h4>
+<ul>
+<li><code>.u-font-weight-300</code></li>
+<li><code>.u-font-weight-400</code></li>
+<li><code>.u-font-weight-500</code></li>
+<li><code>.u-font-weight-600</code></li>
+<li><code>.u-font-weight-700</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="vertical-align"></a><a href="#vertical-align" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vertical Align</h4>
+<ul>
+<li><code>.u-vertical-align-top</code></li>
+<li><code>.u-vertical-align-bottom</code></li>
+<li><code>.u-vertical-align-middle</code></li>
+<li><code>.u-vertical-align-baseline</code></li>
+<li><code>.u-vertical-align-text-bottom</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="decoration"></a><a href="#decoration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decoration</h4>
+<ul>
+<li><code>.u-text-decoration-underline</code></li>
+<li><code>.u-text-decoration-none</code></li>
+<li><code>.u-text-decoration-none:hover</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="text-wrapping-and-word-break"></a><a href="#text-wrapping-and-word-break" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Text wrapping and word break</h4>
+<ul>
+<li><code>.u-white-space-nowrap</code></li>
+<li><code>.u-word-break-break-all</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="spacing"></a><a href="#spacing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spacing</h3>
+<p>The space utility classes are named using the format <code>.u-{margin|padding}-{?side}-{?size}</code>. These utilities are generated from the <code>$g-gaps</code> and <code>$g-pads</code> Sass maps in <code>abstracts/_variables.scss</code>.</p>
+<p>For example; <code>.u-margin-top</code> would add margin to the top of the element.</p>
+<p>Responsive variations also exist for space utilities.</p>
+<h4><a class="anchor" aria-hidden="true" id="sides"></a><a href="#sides" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sides</h4>
+<ul>
+<li><code>top</code> - for classes that set <code>margin-top</code> or <code>padding-top</code></li>
+<li><code>bottom</code> - for classes that set <code>margin-bottom</code> or <code>padding-bottom</code></li>
+<li><code>left</code> - for classes that set <code>margin-left</code> or <code>padding-left</code></li>
+<li><code>right</code> - for classes that set <code>margin-right</code> or <code>padding-right</code></li>
+<li><code>sides</code> - for classes that set both <code>*-left</code> and <code>*-right</code></li>
+<li><code>ends</code> - for classes that set both <code>*-top</code> and <code>*-bottom</code></li>
+<li>blank - for classes that set a margin or padding on all 4 sides of the element</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="sizes"></a><a href="#sizes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sizes</h4>
+<ul>
+<li><code>auto</code> - for classes that set the margin <code>auto</code> (exist only for margins!)</li>
+<li><code>0</code> - for classes that set the margin <code>0</code> (exist only for margins!)</li>
+<li><code>small</code> - (by default) for classes that set the margin <code>$g-gaps[small]</code> or padding to <code>$g-pads[small]</code></li>
+<li><code>xsmall</code> - (by default) for classes that set the margin <code>$g-gaps[xsmall]</code> or padding to <code>$g-pads[xsmall]</code></li>
+<li><code>2xsmall</code> - (by default) for classes that set the margin <code>$g-gaps[2xsmall]</code> or padding to <code>$g-pads[2xsmall]</code></li>
+<li><code>medium</code> - (by default) for classes that set the margin <code>$g-gaps[medium]</code> or padding to <code>$g-pads[medium]</code></li>
+<li><code>large</code> - (by default) for classes that set the margin <code>$g-gaps[large]</code> or padding to <code>$g-pads[large]</code></li>
+<li><code>xlarge</code> - (by default) for classes that set the margin <code>$g-gaps[xlarge]</code> or padding to <code>$g-pads[xlarge]</code></li>
+<li><code>2xlarge</code> - (by default) for classes that set the padding to <code>$g-pads[xlarge]</code> (not available for margin!)</li>
+<li>blank - (by default) for classes that set the margin to <code>$g-gaps[normal]</code> or padding to <code>$g-pads[normal]</code></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples</h4>
+<p>Here are some representative examples of these classes:</p>
+<pre><code class="hljs css language-scss"><span class="hljs-selector-class">.u-margin-top</span> {
+  <span class="hljs-attribute">margin-top</span>: gap(); <span class="hljs-comment">// ~24px  by default</span>
+}
+
+<span class="hljs-selector-class">.u-margin-left-small</span> {
+  <span class="hljs-attribute">margin-left</span>: gap(small); <span class="hljs-comment">// ~16px by default</span>
+}
+
+<span class="hljs-selector-class">.u-padding-sides-medium</span> {
+  <span class="hljs-attribute">padding-left</span>: pad(medium); <span class="hljs-comment">// ~40px by default</span>
+  <span class="hljs-attribute">padding-right</span>: pad(medium);
+}
+
+<span class="hljs-selector-class">.u-padding</span> {
+  <span class="hljs-attribute">padding</span>: pad(); <span class="hljs-comment">// ~32px by default</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="nondeclarative-classes"></a><a href="#nondeclarative-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nondeclarative Classes</h2>
+<ul>
+<li><code>.u-clearfix</code> - Clear any floats within an element. Can also be used as a mixin. <code>@include clearfix</code></li>
+<li><code>.u-img-fluid</code> - Responsive images (ensure images don't scale beyond their parents)</li>
+<li><code>.u-text-truncate</code> - For longer content, you can add this class to truncate the text with an ellipsis. Requires <code>display: inline-block</code> or <code>display: block</code>. Can also be used as a mixin. <code>@include text-truncate</code></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/installation"><span class="arrow-prev">← </span><span>Installation</span></a><a class="docs-next button" href="/docs/utilities/responsive"><span>Responsive</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#declarative-classes">Declarative Classes</a><ul class="toc-headings"><li><a href="#common">Common</a></li><li><a href="#float">Float</a></li><li><a href="#interactivity">Interactivity</a></li><li><a href="#colors">Colors</a></li><li><a href="#display">Display</a></li><li><a href="#flexbox">Flexbox</a></li><li><a href="#sizing">Sizing</a></li><li><a href="#font-sizing">Font Sizing</a></li><li><a href="#text">Text</a></li><li><a href="#spacing">Spacing</a></li></ul></li><li><a href="#nondeclarative-classes">Nondeclarative Classes</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/atolye15/scss-starter">GitHub</a><a class="github-button" href="https://github.com/atolye15/scss-starter" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Atölye15</section></footer></div></body></html>
