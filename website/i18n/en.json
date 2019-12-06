@@ -5,6 +5,9 @@
     "previous": "Previous",
     "tagline": "SCSS starter for a web project.",
     "docs": {
+      "core/functions": {
+        "title": "Functions"
+      },
       "getting-started/architecture": {
         "title": "Architecture"
       },
