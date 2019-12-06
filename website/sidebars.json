@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Getting Started": ["getting-started/download"],
+    "Getting Started": ["getting-started/download", "getting-started/architecture"],
     "Utilities": ["utilities/predefined-classes", "utilities/responsive", "utilities/customizing"]
   }
 }
