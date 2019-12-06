@@ -38,7 +38,7 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: 'installation', label: 'Docs' },
+    { doc: 'getting-started/download', label: 'Docs' },
     {
       href: 'https://github.com/atolye15/scss-starter',
       label: 'GitHub',
