@@ -58,12 +58,12 @@
 // Px to Em Mixin
 //
 
-@function px-to-em($px, $base: $g-font-size-base) {
-  $unit: unit($base);
+@function px-to-em($value, $base-value: $g-font-size-base) {
+  $unit: unit($base-value);
   @if ($unit == rem) {
-    $base: rem-to-px($base);
+    $base-value: rem-to-px($base-value);
   }
-  @return ($px / $base) * 1em;
+  @return ($value / $base-value) * 1em;
 }
 
 //
