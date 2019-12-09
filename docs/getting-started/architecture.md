@@ -59,7 +59,7 @@ The `components/` folder contains well-designed pieces of UI that can be reused 
 
 ### Libs Folder
 
-And last but not least, most projects will have a `libs/` folder containing all the CSS files from external libraries and frameworks – Normalize, Bootstrap, and so on. Putting those aside in the same folder is a good way to say “Hey, this is not from me, not my code, not my responsibility”.
+And last but not least, most projects will have a `libs/` folder containing all the CSS files from external libraries and frameworks like – Normalize, Bootstrap, and so on. Putting those aside in a separate folder is a good way to say “Hey, this is not from me, not my code, not my responsibility”.
 
 ### Main file
 
