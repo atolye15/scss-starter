@@ -3,7 +3,7 @@ id: architecture
 title: Architecture
 ---
 
-Architecting a CSS project is probably one of the most difficult things you will have to do in a project’s life. Keeping the architecture consistent and meaningful is even harder.
+Architecting a CSS project is probably one of the most difficult things you will have to do in a project’s lifetime and keeping its architecture consistent and meaningful is even harder.
 
 One of the core things of SCSS Starter is its sustainable and scalable architecture inspired by [ITCSS](http://itcss.io). It pays a lot of attention to how specificity evolves so that you don’t have any undesired behavior.
 
