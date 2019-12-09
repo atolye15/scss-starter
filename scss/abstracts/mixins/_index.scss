@@ -2,7 +2,10 @@
 // Mixins
 //
 
-@import 'common';
+@import 'font-face';
+@import 'css-triangle';
+@import 'img-fluid';
+@import 'image-retina';
 @import 'clearfix';
 @import 'text-truncate';
 @import 'breakpoint';
