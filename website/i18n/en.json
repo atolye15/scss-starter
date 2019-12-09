@@ -5,9 +5,14 @@
     "previous": "Previous",
     "tagline": "SCSS starter for a web project.",
     "docs": {
-      "installation": {
-        "title": "Installation",
-        "sidebar_label": "Installation"
+      "core/functions": {
+        "title": "Functions"
+      },
+      "getting-started/architecture": {
+        "title": "Architecture"
+      },
+      "getting-started/download": {
+        "title": "Download"
       },
       "utilities/customizing": {
         "title": "Customizing"
