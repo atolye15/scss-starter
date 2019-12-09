@@ -55,7 +55,7 @@ The `objects/` folder contains every file that takes part in laying out your sit
 
 ### Components folder
 
-The `components/` folder contains well-designed pieces of UI that can be reused in more than one spot. There are usually a lot of files in this folder since the whole site/application should be mostly composed of tiny modules. Buttons, form control elements, alerts, may count as examples.
+The `components/` folder contains well-designed pieces of UI that can be reused at more than one spot. There are usually a lot of files in this folder since the whole site/application should be mostly composed of tiny modules. Buttons, form control elements, alerts, may be counted as examples.
 
 ### Libs Folder
 
