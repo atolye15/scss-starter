@@ -63,7 +63,7 @@ And last but not least, most projects will have a `libs/` folder containing all 
 
 ### Main file
 
-The main file (usually labeled `main.scss`) should be the only Sass file from the whole codebase not to begin with an underscore. This file should not contain anything but @import and comments.
+The main file (usually labeled `main.scss`) should be the only Sass file of the whole codebase which should not begin with an underscore, and also should not contain anything but `@import` and comments.
 
 In the main file the order of imports is important. Order should be as follows:
 
