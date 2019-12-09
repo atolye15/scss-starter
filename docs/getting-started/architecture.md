@@ -51,7 +51,7 @@ The `base/` folder holds what we might call the boilerplate code for the project
 
 ### Objects folder
 
-The `objects/` folder contains everything that takes part in laying out the site or application. This folder could have stylesheets for the main parts of the site (header, footer, navigation, sidebar…), the grid system or even CSS styles for all the forms.
+The `objects/` folder contains every file that takes part in laying out your site or application. This folder may have stylesheets for the main parts of your site or application (header, footer, navigation, sidebar…), the grid system or even CSS styles for all your forms.
 
 ### Components folder
 
