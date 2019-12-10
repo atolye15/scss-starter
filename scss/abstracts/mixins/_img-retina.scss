@@ -1,12 +1,15 @@
 //
 // Retina Image
 //
-// $image2x - 2x Resim url adresi Örn 'img/logo-retina.png'
-// $width - Resim genişliği
-// $height - Resim yüksekliği
+// Short retina mixin for setting background-image and -size.
+//
+// $image2x - 2x Image url e.g 'img/logo-retina.png'
+// $width - Image width
+// $height - Image height
 
-@mixin image-retina($image2x, $width2x, $height2x) {
-  // stylelint-disable media-feature-name-no-vendor-prefix
+// stylelint-disable media-feature-name-no-vendor-prefix
+
+@mixin img-retina($image2x, $width2x, $height2x) {
   @media only screen and (-webkit-min-device-pixel-ratio: 2),
     only screen and (min--moz-device-pixel-ratio: 2),
     only screen and (-o-min-device-pixel-ratio: 2/1),
