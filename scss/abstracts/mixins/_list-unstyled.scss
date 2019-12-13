@@ -1,5 +1,5 @@
-@mixin list-unstyled($pad-left: 0, $margin-bottom: null) {
-  padding-left: $pad-left;
+@mixin list-unstyled($padding-left: 0, $margin-bottom: null) {
+  padding-left: $padding-left;
   margin-bottom: $margin-bottom;
   list-style: none;
 }
