@@ -8,6 +8,9 @@
       "core/functions": {
         "title": "Functions"
       },
+      "core/mixins": {
+        "title": "Mixins"
+      },
       "getting-started/architecture": {
         "title": "Architecture"
       },
@@ -30,6 +33,7 @@
     },
     "categories": {
       "Getting Started": "Getting Started",
+      "Core": "Core",
       "Utilities": "Utilities"
     }
   },
