@@ -37,7 +37,7 @@ jobs:
 
       - name: Build docs
         run: cd website && yarn install && yarn build
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.node-version == '12.x'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.node == 12
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2
@@ -45,4 +45,4 @@ jobs:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./website/build/scss-starter
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.node-version == '12.x'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.node == 12
