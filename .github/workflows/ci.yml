@@ -1,0 +1,48 @@
+name: CI
+on:
+  push:
+    branches:
+      - develop
+      - master
+  pull_request:
+    branches:
+      - develop
+      - master
+
+jobs:
+  run:
+    name: Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [10, 12]
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v1
+
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: node --version
+      - run: npm --version
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run lint
+        run: yarn lint
+
+      - name: Build docs
+        run: cd website && yarn install && yarn build
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.node-version == '12.x'
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./website/build/scss-starter
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.node-version == '12.x'

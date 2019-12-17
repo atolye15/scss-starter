@@ -1,5 +1,85 @@
 //
-// Utility generator
+// Generate Utility Functions
+// --------------------------------------------------
+
+//
+// Normalize Utility Breakpoints
+// @param: {Boolean|Map|List} $responsive - Responsivity data of the utility class
+//
+// @return {Map} Normalize utility breakpoints
+
+@function normalize-utility-breakpoints($responsive) {
+  $breakpoints: ();
+
+  @if $responsive == false {
+    @return ();
+  }
+
+  @if $responsive == true {
+    $responsive: map-keys($grid-breakpoints);
+  }
+
+  // When there is only one value in the list and the value type is map
+  // $responsive value type transforms to map, so we need to convert it to list again.
+  @if type-of($responsive) == 'map' {
+    $responsive: append((), $responsive);
+  }
+
+  @each $breakpoint in $responsive {
+    @if type-of($breakpoint) == 'map' {
+      @each $key, $value in $breakpoint {
+        $breakpoints: append(
+          $breakpoints,
+          (
+            'breakpoint': $key,
+            'direction': $value,
+          )
+        );
+      }
+    } @else {
+      $breakpoints: append(
+        $breakpoints,
+        (
+          'breakpoint': $breakpoint,
+          'direction': 'all',
+        )
+      );
+    }
+  }
+
+  @return $breakpoints;
+}
+
+//
+// Transform Spaces Map To Utilty Values
+// @param: {Map} $spaces - $g-gaps or $g-pads
+//
+// @return {Map} Transformed map
+
+@function transform-spaces-map-to-utilty-values($spaces) {
+  $result: ();
+
+  @each $key, $value in $spaces {
+    @if $key == 'normal' {
+      $key: '';
+    }
+
+    $result: map-merge(
+      $result,
+      (
+        $key: (
+          value: $value,
+          responsive: true,
+        ),
+      )
+    );
+  }
+
+  @return $result;
+}
+
+//
+// Generate Utility mixins
 // --------------------------------------------------
 
 @mixin generate-utility-responsive-up($breakpoints: map-keys($grid-breakpoints)) {
@@ -40,7 +120,7 @@
         @content;
       }
     }
-    @if map-get($breakpoint, 'direction') or map-get($breakpoint, 'direction') == 'down' {
+    @if map-get($breakpoint, 'direction') == 'all' or map-get($breakpoint, 'direction') == 'down' {
       @include generate-utility-responsive-down(map-get($breakpoint, 'breakpoint')) {
         @content;
       }
