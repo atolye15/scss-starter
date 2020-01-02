@@ -17,6 +17,9 @@
       "getting-started/download": {
         "title": "Download"
       },
+      "layout/grid": {
+        "title": "Grid"
+      },
       "utilities/customizing": {
         "title": "Customizing"
       },
@@ -33,6 +36,7 @@
     },
     "categories": {
       "Getting Started": "Getting Started",
+      "Layout": "Layout",
       "Core": "Core",
       "Utilities": "Utilities"
     }
