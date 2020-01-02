@@ -1,0 +1,1032 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Grid · SCSS starter</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="_Based on the [Bootstrap](https://getbootstrap.com/)&#x27;s grid system._"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Grid · SCSS starter"/><meta property="og:type" content="website"/><meta property="og:url" content="https://atolye15.github.io/scss-starter/"/><meta property="og:description" content="_Based on the [Bootstrap](https://getbootstrap.com/)&#x27;s grid system._"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/scss-starter/undefined"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/scss-starter/js/scrollSpy.js"></script><link rel="stylesheet" href="/scss-starter/css/main.css"/><script src="/scss-starter/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/scss-starter/"><h2 class="headerTitle">SCSS starter</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/scss-starter/docs/getting-started/download" target="_self">Docs</a></li><li class=""><a href="https://github.com/atolye15/scss-starter" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Layout</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/scss-starter/docs/getting-started/download">Download</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/getting-started/architecture">Architecture</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Layout</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/scss-starter/docs/layout/grid">Grid</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Core</h3><ul class=""><li class="navListItem"><a class="navItem" href="/scss-starter/docs/core/mixins">Mixins</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/core/functions">Functions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Utilities</h3><ul class=""><li class="navListItem"><a class="navItem" href="/scss-starter/docs/utilities/predefined-classes">Predefined Classes</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/utilities/responsive">Responsive</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/utilities/customizing">Customizing</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Grid</h1></header><article><div><span><p><em>Based on the <a href="https://getbootstrap.com/">Bootstrap</a>'s grid system.</em></p>
+<p>Use our powerful mobile-first flexbox grid to build layouts of all shapes and sizes thanks to a twelve column system, five default responsive tiers, Sass variables and mixins, and dozens of predefined classes.</p>
+<h2><a class="anchor" aria-hidden="true" id="how-it-works"></a><a href="#how-it-works" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How it works</h2>
+<p>SCSS Starter’s grid system uses a series of containers, rows, and columns to layout and align content. It’s built with flexbox and is fully responsive. Below is an example and an in-depth look at how the grid comes together.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--sm">
+        One of three columns
+      </div>
+      <div class="col col--sm">
+        One of three columns
+      </div>
+      <div class="col col--sm">
+        One of three columns
+      </div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>The above example creates three equal-width columns on small, medium, large, and extra large devices using our predefined grid classes. Those columns are centered in the page with the parent <code>.container</code>.</p>
+<p>Breaking it down, here’s how it works:</p>
+<ul>
+<li>Containers provide a means to center and horizontally pad your site’s contents. Use .container for a responsive pixel width or <code>.container-fluid</code> for <code>width: 100%</code> across all viewport and device sizes.</li>
+<li>Rows are wrappers for columns. Each column has horizontal <code>padding</code> (called a gutter) for controlling the space between them. This <code>padding</code> is then counteracted on the rows with negative margins. This way, all the content in your columns is visually aligned down the left side.</li>
+<li>In a grid layout, content must be placed within columns and only columns may be immediate children of rows.</li>
+<li>Thanks to flexbox, grid columns without a specified <code>width</code> will automatically layout as equal width columns. For example, four instances of <code>.col--sm</code> will each automatically be 25% wide from the small breakpoint and up. See the <a href="">auto-layout columns</a> section for more examples.</li>
+<li>Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use <code>.col--xs-4</code>.</li>
+<li>Column <code>width</code>s are set in percentages, so they’re always fluid and sized relative to their parent element.</li>
+<li>Columns have horizontal <code>padding</code> to create the gutters between individual columns, however, you can remove the <code>margin</code> from rows and <code>padding</code> from columns with <code>.row--no-gutters</code> on the <code>.row</code>.</li>
+<li>To make the grid responsive, there are five grid breakpoints, one for each <a href="">responsive breakpoint</a>: all breakpoints (extra small), small, medium, large, and extra large.</li>
+<li>Grid breakpoints are based on minimum width media queries, meaning they apply to that one breakpoint and all those above it (e.g., <code>.col--sm-4</code> applies to small, medium, large, and extra large devices, but not the first xs breakpoint).</li>
+<li>You can use predefined grid classes (like <code>.col--xs-4</code>) or <a href="">Sass mixins</a> for more semantic markup.</li>
+</ul>
+<p>Be aware of the limitations and bugs around flexbox, like the inability to use some HTML elements as flex containers.</p>
+<h2><a class="anchor" aria-hidden="true" id="grid-options"></a><a href="#grid-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Grid options</h2>
+<p>While SCSS Starter uses <code>em</code>s or <code>rem</code>s for defining most sizes, <code>px</code>s are used for grid breakpoints and container widths. This is because the viewport width is in pixels and does not change with the <a href="https://drafts.csswg.org/mediaqueries-3/#units">font size</a>.</p>
+<p>See how aspects of the SCSS Starter grid system work across multiple devices with a handy table.</p>
+<table>
+  <thead>
+    <tr class="u-text-align-center">
+      <th></th>
+      <th>Extra small <span class="table-subhead">&lt;576px</span></th>
+      <th>Small <span class="table-subhead">&GreaterEqual;576px</span></th>
+      <th>Medium <span class="table-subhead">&GreaterEqual;768px</span></th>
+      <th>Large <span class="table-subhead">&GreaterEqual;992px</span></th>
+      <th>Extra large <span class="table-subhead">&GreaterEqual;1200px</span></th>
+    <tr>
+  </thead>
+  <tbody>
+    <tr class="u-white-space-nowrap">
+      <td>Max container width</td>
+      <td>None (auto)</td>
+      <td>540px</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1140px</td>
+    </tr>
+    <tr class="u-white-space-nowrap">
+      <td>Class prefix</td>
+      <td><code>.col--xs-</code></td>
+      <td><code>.col--sm-</code></td>
+      <td><code>.col--md-</code></td>
+      <td><code>.col--lg-</code></td>
+      <td><code>.col--xl-</code></td>
+    </tr>
+    <tr>
+      <td># of columns</td>
+      <td colspan="5">12</td>
+    </tr>
+    <tr>
+      <td>Gutter width</td>
+      <td colspan="5">32px (16px on each side of a column)</td>
+    </tr>
+    <tr>
+      <td>Nestable</td>
+      <td colspan="5">Yes</td>
+    </tr>
+    <tr>
+      <td>Column ordering</td>
+      <td colspan="5">Yes (with the utility classes)</td>
+    </tr>
+  </tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="auto-layout-columns"></a><a href="#auto-layout-columns" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Auto-layout columns</h2>
+<p>Utilize breakpoint-specific column classes for easy column sizing without an explicit numbered class like <code>.col--sm-6</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="equal-width"></a><a href="#equal-width" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Equal-width</h3>
+<p>For example, here are two grid layouts that apply to every device and viewport, from <code>xs</code> to <code>xl</code>. Add any number of unit-less classes for each breakpoint you need and every column will be the same width</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--xs">
+        1 of 2
+      </div>
+      <div class="col col--xs">
+        2 of 2
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col--xs">
+        1 of 3
+      </div>
+      <div class="col col--xs">
+        2 of 3
+      </div>
+      <div class="col col--xs">
+        3 of 3
+      </div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      1 of 2
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      2 of 2
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      1 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      2 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      3 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="setting-one-column-width"></a><a href="#setting-one-column-width" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting one column width</h3>
+<p>Auto-layout for flexbox grid columns also means you can set the width of one column and have the sibling columns automatically resize around it. You may use predefined utility classes (as shown below), grid mixins, or inline widths. Note that the other columns will resize no matter the width of the center column.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--xs">
+        1 of 3
+      </div>
+      <div class="col col--xs-6">
+        2 of 3 (wider)
+      </div>
+      <div class="col col--xs">
+        3 of 3
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col--xs">
+        1 of 3
+      </div>
+      <div class="col col--xs-5">
+        2 of 3 (wider)
+      </div>
+      <div class="col col--xs">
+        3 of 3
+      </div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      1 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6"</span>&gt;</span>
+      2 of 3 (wider)
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      3 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      1 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-5"</span>&gt;</span>
+      2 of 3 (wider)
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      3 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="variable-width-content"></a><a href="#variable-width-content" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variable width content</h3>
+<p>Use <code>u-width-auto@{breakpoint}-{down|up}</code> utility classes to size columns based on the natural width of their content.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row u-justify-content-center">
+      <div class="col col--lg-2">
+        1 of 3
+      </div>
+      <div class="col u-width-auto@md-up">
+        Variable width content
+      </div>
+      <div class="col col--lg-2">
+        3 of 3
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col--xs">
+        1 of 3
+      </div>
+      <div class="col u-width-auto@md-up">
+        Variable width content
+      </div>
+      <div class="col col--lg-2">
+        3 of 3
+      </div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row u-justify-content-center"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--lg-2"</span>&gt;</span>
+      1 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col u-width-auto@md-up"</span>&gt;</span>
+      Variable width content
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--lg-2"</span>&gt;</span>
+      3 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      1 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col u-width-auto@md-up"</span>&gt;</span>
+      Variable width content
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--lg-2"</span>&gt;</span>
+      3 of 3
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="responsive-classes"></a><a href="#responsive-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responsive classes</h2>
+<p>SCSS Starter’s grid includes five tiers of predefined classes for building complex responsive layouts. Customize the size of your columns on extra small, small, medium, large, or extra large devices however you see fit.</p>
+<h3><a class="anchor" aria-hidden="true" id="all-breakpoints"></a><a href="#all-breakpoints" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>All breakpoints</h3>
+<p>For grids that are the same from the smallest of devices to the largest, use the <code>.col--xs</code> and <code>.col--xs-*</code> classes. Specify a numbered class when you need a particularly sized column; otherwise, feel free to stick to <code>.col--xs</code>.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--xs">col--xs</div>
+      <div class="col col--xs">col--xs</div>
+      <div class="col col--xs">col--xs</div>
+      <div class="col col--xs">col--xs</div>
+    </div>
+    <div class="row">
+      <div class="col col--xs-8">col--xs-8</div>
+      <div class="col col--xs-4">col--xs-4</div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>col--xs<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>col--xs<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>col--xs<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>col--xs<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-8"</span>&gt;</span>col--xs-8<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>col--xs-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="stacked-to-horizontal"></a><a href="#stacked-to-horizontal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stacked to horizontal</h3>
+<p>Using a single set of <code>.col--sm-*</code> classes, you can create a basic grid system that starts out stacked and becomes horizontal at the small breakpoint (<code>sm</code>).</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--sm-8">col--sm-8</div>
+      <div class="col col--sm-4">col--sm-4</div>
+    </div>
+    <div class="row">
+      <div class="col col--sm">col--sm</div>
+      <div class="col col--sm">col--sm</div>
+      <div class="col col--sm">col--sm</div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm-8"</span>&gt;</span>col--sm-8<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm-4"</span>&gt;</span>col--sm-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm"</span>&gt;</span>col--sm<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm"</span>&gt;</span>col--sm<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm"</span>&gt;</span>col--sm<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="mix-and-match"></a><a href="#mix-and-match" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mix and match</h3>
+<p>Don’t want your columns to simply stack in some grid tiers? Use a combination of different classes for each tier as needed. See the example below for a better idea of how it all works.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--md-8">.col--md-8</div>
+      <div class="col col--xs-6 col--md-4">.col--xs-6 .col--md-4</div>
+    </div>
+    <div class="row">
+      <div class="col col--xs-6 col--md-4">.col--xs-6 .col--md-4</div>
+      <div class="col col--xs-6 col--md-4">.col--xs-6 .col--md-4</div>
+      <div class="col col--xs-6 col--md-4">.col--xs-6 .col--md-4</div>
+    </div>
+    <div class="row">
+      <div class="col col--xs-6">.col--xs-6</div>
+      <div class="col col--xs-6">.col--xs-6</div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Stack the columns on mobile by making one full-width and the other half-width --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-8"</span>&gt;</span>.col--md-8<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--md-4"</span>&gt;</span>.col--xs-6 .col--md-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col--xs-6 col--md-4"</span>&gt;</span>.col--xs-6 .col--md-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col--xs-6 col--md-4"</span>&gt;</span>.col--xs-6 .col--md-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col--xs-6 col--md-4"</span>&gt;</span>.col--xs-6 .col--md-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Columns are always 50% wide, on mobile and desktop --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col--xs-6"</span>&gt;</span>.col--xs-6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col--xs-6"</span>&gt;</span>.col--xs-6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="alignment"></a><a href="#alignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alignment</h2>
+<p>Use flexbox alignment utilities to vertically and horizontally align columns.</p>
+<h3><a class="anchor" aria-hidden="true" id="vertical-alignment"></a><a href="#vertical-alignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vertical alignment</h3>
+<div class="grid-example grid-example--vertical-alignment">
+  <div class="container">
+    <div class="row u-align-items-flex-start">
+      <div class="col col--xs">
+        One of three columns
+      </div>
+      <div class="col col--xs">
+        One of three columns
+      </div>
+      <div class="col col--xs">
+        One of three columns
+      </div>
+    </div>
+    <div class="row u-align-items-center">
+      <div class="col col--xs">
+        One of three columns
+      </div>
+      <div class="col col--xs">
+        One of three columns
+      </div>
+      <div class="col col--xs">
+        One of three columns
+      </div>
+    </div>
+    <div class="row u-align-items-flex-end">
+      <div class="col col--xs">
+        One of three columns
+      </div>
+      <div class="col col--xs">
+        One of three columns
+      </div>
+      <div class="col col--xs">
+        One of three columns
+      </div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row u-align-items-flex-start"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row u-align-items-center"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row u-align-items-flex-end"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<div class="grid-example grid-example--vertical-alignment">
+  <div class="container">
+    <div class="row">
+      <div class="col col--xs u-align-self-flex-start">
+        One of three columns
+      </div>
+      <div class="col col--xs u-align-self-center">
+        One of three columns
+      </div>
+      <div class="col col--xs u-align-self-flex-end">
+        One of three columns
+      </div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs u-align-self-flex-start"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs u-align-self-center"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs u-align-self-flex-end"</span>&gt;</span>
+      One of three columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="horizontal-alignment"></a><a href="#horizontal-alignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Horizontal alignment</h3>
+<div class="grid-example">
+  <div class="container">
+    <div class="row u-justify-content-flex-start">
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+    </div>
+    <div class="row u-justify-content-center">
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+    </div>
+    <div class="row u-justify-content-flex-end">
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+    </div>
+    <div class="row u-justify-content-space-around">
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+    </div>
+    <div class="row u-justify-content-space-between">
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+      <div class="col col--xs-4">
+        One of two columns
+      </div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row u-justify-content-flex-start"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row u-justify-content-center"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row u-justify-content-flex-end"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row u-justify-content-space-around"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row u-justify-content-space-between"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      One of two columns
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="no-gutters"></a><a href="#no-gutters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>No gutters</h3>
+<p>The gutters between columns in our predefined grid classes can be removed with <code>.row--no-gutters</code>. This removes the negative margins from <code>.row</code> and the horizontal padding from all immediate children columns.</p>
+<p>Here’s the source code for creating these styles. Note that column overrides are scoped to only the first children columns. While this generates a more specific selector, column padding can still be further customized with <a href="/scss-starter/docs/utilities/predefined-classes#spacing">spacing utilities</a>.</p>
+<p>Need an edge-to-edge design? Drop the parent <code>.container</code> or <code>.container-fluid</code>.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-selector-class">.row--no-gutters</span> {
+  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
+
+  &gt; <span class="hljs-selector-class">.col</span> {
+    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
+  }
+}
+</code></pre>
+<p>In practice, here’s how it looks. Note you can continue to use this with all other predefined grid classes (including column widths, responsive tiers, reorders, and more).</p>
+<div class="grid-example">
+  <div class="row row--no-gutters">
+    <div class="col col--sm-6 col--md-8">.col--sm-6 .col--md-8</div>
+    <div class="col col--xs-6 col--md-4">.col--xs-6 .col--md-4</div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row row--no-gutters"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm-6 col--md-8"</span>&gt;</span>.col--sm-6 .col--md-8<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--md-4"</span>&gt;</span>.col--xs-6 .col--md-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="column-wrapping"></a><a href="#column-wrapping" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Column wrapping</h3>
+<p>If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--xs-9">.col--xs-9</div>
+      <div class="col col--xs-4">.col--xs-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+      <div class="col col--xs-6">.col--xs-6<br>Subsequent columns continue along the new line.</div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-9"</span>&gt;</span>.col--xs-9<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4"</span>&gt;</span>
+      .col--xs-4<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>Since 9 + 4 = 13 &amp;gt; 12, this 4-column-wide div gets wrapped onto a new line
+      as one contiguous unit.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6"</span>&gt;</span>.col--xs-6<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>Subsequent columns continue along the new line.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="column-breaks"></a><a href="#column-breaks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Column breaks</h3>
+<p>Breaking columns to a new line in flexbox requires a small hack: add an element with <code>width: 100%</code> wherever you want to wrap your columns to a new line. Normally this is accomplished with multiple <code>.row</code>s, but not every implementation method can account for this.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--xs-6 col--sm-3">.col--xs-6 .col--sm-3</div>
+      <div class="col col--xs-6 col--sm-3">.col--xs-6 .col--sm-3</div>
+      <div class="u-width-100%"></div>
+      <div class="col col--xs-6 col--sm-3">.col--xs-6 .col--sm-3</div>
+      <div class="col col--xs-6 col--sm-3">.col--xs-6 .col--sm-3</div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--sm-3"</span>&gt;</span>.col--xs-6 .col--sm-3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--sm-3"</span>&gt;</span>.col--xs-6 .col--sm-3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Force next columns to break to new line --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"u-width-100%"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--sm-3"</span>&gt;</span>.col--xs-6 .col--sm-3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--sm-3"</span>&gt;</span>.col--xs-6 .col--sm-3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>You may also apply this break at specific breakpoints with our responsive display utilities.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--xs-6 col--sm-4">.col--xs-6 .col--sm-4</div>
+      <div class="col col--xs-6 col--sm-4">.col--xs-6 .col--sm-4</div>
+      <div class="u-width-100% u-display-none@sm-down"></div>
+      <div class="col col--xs-6 col--sm-4">.col--xs-6 .col--sm-4</div>
+      <div class="col col--xs-6 col--sm-4">.col--xs-6 .col--sm-4</div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--sm-4"</span>&gt;</span>.col--xs-6 .col--sm-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--sm-4"</span>&gt;</span>.col--xs-6 .col--sm-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Force next columns to break to new line at md breakpoint and up --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"u-width-100% u-display-none@sm-down"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--sm-4"</span>&gt;</span>.col--xs-6 .col--sm-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-6 col--sm-4"</span>&gt;</span>.col--xs-6 .col--sm-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="offsetting-columns"></a><a href="#offsetting-columns" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Offsetting columns</h2>
+<p>You can offset grid columns in two ways: our responsive <code>.col--offset-</code> grid classes and our <a href="/scss-starter/docs/utilities/predefined-classes#spacing">margin utilities</a>. Grid classes are sized to match columns while margins are more useful for quick layouts where the width of the offset is variable.</p>
+<h3><a class="anchor" aria-hidden="true" id="offset-classes"></a><a href="#offset-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Offset classes</h3>
+<p>Move columns to the right using <code>.col--offset-md-*</code> classes. These classes increase the left margin of a column by <code>*</code> columns. For example, <code>.col--offset-md-4</code> moves <code>.col--md-4</code> over four columns.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--md-4">.col--md-4</div>
+      <div class="col col--md-4 col--offset-md-4">.col--md-4 .col--offset-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col col--md-3 col--offset-md-3">.col--md-3 .col--offset-md-3</div>
+      <div class="col col--md-3 col--offset-md-3">.col--md-3 .col--offset-md-3</div>
+    </div>
+    <div class="row">
+      <div class="col col--md-6 col--offset-md-3">.col-md-6 .col--offset-md-3</div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-4"</span>&gt;</span>.col--md-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-4 col--offset-md-4"</span>&gt;</span>.col--md-4 .col--offset-md-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-3 col--offset-md-3"</span>&gt;</span>.col--md-3 .col--offset-md-3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-3 col--offset-md-3"</span>&gt;</span>.col--md-3 .col--offset-md-3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-6 col--offset-md-3"</span>&gt;</span>.col-md-6 .col--offset-md-3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>In addition to column clearing at responsive breakpoints, you may need to reset offsets.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--sm-5 col--md-6">.col--sm-5 .col--md-6</div>
+      <div class="col col--sm-5 col--offset-sm-2 col--md-6 col--offset-md-0">
+        .col--sm-5 .col--offset-sm-2 .col--md-6 .col--offset-md-0
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col--sm-6 col--md-5 col--lg-6">.col--sm-6 .col--md-5 .col--lg-6</div>
+      <div class="col col--sm-6 col--md-5 col--offset-md-2 col--lg-6 col--offset-lg-0">
+        .col--sm-6 .col--md-5 .col--offset-md-2 .col--lg-6 .col--offset-lg-0
+      </div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm-5 col--md-6"</span>&gt;</span>.col--sm-5 .col--md-6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm-5 col--offset-sm-2 col--md-6 col--offset-md-0"</span>&gt;</span>
+      .col--sm-5 .col--offset-sm-2 .col--md-6 .col--offset-md-0
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm-6 col--md-5 col--lg-6"</span>&gt;</span>.col--sm-6 .col--md-5 .col--lg-6<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm-6 col--md-5 col--offset-md-2 col--lg-6 col--offset-lg-0"</span>&gt;</span>
+      .col--sm-6 .col--md-5 .col--offset-md-2 .col--lg-6 .col--offset-lg-0
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="margin-utilities"></a><a href="#margin-utilities" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Margin utilities</h3>
+<p>You can use <a href="/scss-starter/docs/utilities/predefined-classes#spacing">margin utilities</a> like <code>.u-margin-right-auto</code> to force sibling columns away from one another.</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--md-4">.col--md-4</div>
+      <div class="col col--md-4 u-margin-left-auto">.col--md-4 .u-margin-left-auto</div>
+    </div>
+    <div class="row">
+      <div class="col col--md-3 u-margin-left-auto@md-up">.col--md-3 .u-margin-left-auto@md-up</div>
+      <div class="col col--md-3 u-margin-left-auto@md-up">.col--md-3 .u-margin-left-auto@md-up</div>
+    </div>
+    <div class="row">
+      <div class="col u-width-auto u-margin-right-auto">.u-width-auto .u-margin-right-auto</div>
+      <div class="col u-width-auto">.u-width-auto</div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-4"</span>&gt;</span>.col--md-4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-4 u-margin-left-auto"</span>&gt;</span>.col--md-4 .u-margin-left-auto<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-3 u-margin-left-auto@md-up"</span>&gt;</span>.col--md-3 .u-margin-left-auto@md-up<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--md-3 u-margin-left-auto@md-up"</span>&gt;</span>.col--md-3 .u-margin-left-auto@md-up<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col u-width-auto u-margin-right-auto"</span>&gt;</span>.u-width-auto .u-margin-right-auto<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col u-width-auto"</span>&gt;</span>.u-width-auto<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="nesting"></a><a href="#nesting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nesting</h2>
+<p>To nest your content with the default grid, add a new <code>.row</code> and set of <code>.col--sm-*</code> columns within an existing <code>.col--sm-*</code> column. Nested rows should include a set of columns that add up to 12 or fewer (it is not required that you use all 12 available columns).</p>
+<div class="grid-example">
+  <div class="container">
+    <div class="row">
+      <div class="col col--sm-9">
+        Level 1: .col--sm-9
+        <div class="row">
+          <div class="col col--xs-8 col--sm-6">
+            Level 2: .col--xs-8 .col--sm-6
+          </div>
+          <div class="col col--xs-4 col--sm-6">
+            Level 2: .col--xs-4 .col--sm-6
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--sm-9"</span>&gt;</span>
+      Level 1: .col--sm-9
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-8 col--sm-6"</span>&gt;</span>
+          Level 2: .col--xs-8 .col--sm-6
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col--xs-4 col--sm-6"</span>&gt;</span>
+          Level 2: .col--xs-4 .col--sm-6
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="sass-mixins"></a><a href="#sass-mixins" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sass mixins</h2>
+<p>When using SCSS Starter’s source Sass files, you have the option of using Sass variables and mixins to create custom, semantic, and responsive page layouts. Our predefined grid classes use these same variables and mixins to provide a whole suite of ready-to-use classes for fast responsive layouts.</p>
+<h3><a class="anchor" aria-hidden="true" id="variables"></a><a href="#variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variables</h3>
+<p>Variables and maps determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below. See the <a href="#customizing-the-grid">customizing the grid</a> section for customizing these variables.</p>
+<h4><a class="anchor" aria-hidden="true" id="grid-breakpoints"></a><a href="#grid-breakpoints" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$grid-breakpoints</code></h4>
+<p>The grid breakpoints.</p>
+<ul>
+<li><code>xs</code>: Extra small screen / phone</li>
+<li><code>sm</code>: Small screen / phone</li>
+<li><code>md</code>: Medium screen / tablet</li>
+<li><code>lg</code>: Large screen / desktop</li>
+<li><code>xl</code>: Extra large screen / wide desktop</li>
+</ul>
+<p>The breakpoint values are used to determine breakpoint ranges. A range starts from the breakpoint value inclusive, to the next breakpoint value exclusive:</p>
+<pre><code class="hljs css language-text">value         |0px     544px    768px    992px    1200px
+key           |xs      sm       md       lg       xl
+screen width  |--------|--------|--------|--------|-------->
+range         |   xs   |   sm   |   md   |   lg   |   xl
+</code></pre>
+<pre><code class="hljs css language-scss"><span class="hljs-comment">// abstracts/_variables.scss</span>
+
+<span class="hljs-variable">$grid-breakpoints</span>: (
+  xs: <span class="hljs-number">0</span>,
+  sm: <span class="hljs-number">544px</span>,
+  md: <span class="hljs-number">768px</span>,
+  lg: <span class="hljs-number">992px</span>,
+  xl: <span class="hljs-number">1200px</span>,
+) !default;
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="container-max-widths"></a><a href="#container-max-widths" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$container-max-widths</code></h4>
+<p>The maximum width of a grid container.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-comment">// abstracts/_variables.scss</span>
+
+<span class="hljs-variable">$container-max-widths</span>: (
+  sm: <span class="hljs-number">576px</span>,
+  md: <span class="hljs-number">720px</span>,
+  lg: <span class="hljs-number">940px</span>,
+  xl: <span class="hljs-number">1140px</span>,
+) !default;
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="grid-columns"></a><a href="#grid-columns" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$grid-columns</code></h4>
+<p>The number of columns used in the grid.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-comment">// abstracts/_variables.scss</span>
+
+<span class="hljs-variable">$grid-columns</span>: <span class="hljs-number">12</span> !default;
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="grid-gutter-width"></a><a href="#grid-gutter-width" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$grid-gutter-width</code></h4>
+<p>The amount of gap between cells at different screen sizes.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-comment">// abstracts/_variables.scss</span>
+
+<span class="hljs-variable">$grid-gutter-width</span>: px-to-rem(<span class="hljs-number">32px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="mixins"></a><a href="#mixins" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mixins</h3>
+<p>Mixins are used in conjunction with the grid variables to generate semantic CSS for individual grid columns.</p>
+<h4><a class="anchor" aria-hidden="true" id="make-grid-container"></a><a href="#make-grid-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>make-grid-container</code></h4>
+<pre><code class="hljs css language-scss">@<span class="hljs-keyword">include</span> make-grid-container(<span class="hljs-variable">$gutter</span>);
+</code></pre>
+<p>Applies the container styles.</p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$gutter</code></td><td>Number</td><td><code>$grid-gutter-width</code></td><td>Gutter width</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="make-grid-container-max-widths"></a><a href="#make-grid-container-max-widths" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>make-grid-container-max-widths</code></h4>
+<pre><code class="hljs css language-scss">@<span class="hljs-keyword">include</span> make-grid-container-max-widths(<span class="hljs-variable">$max-widths</span>, <span class="hljs-variable">$breakpoints</span>);
+</code></pre>
+<p>Applies the container <code>max-width</code> styles.</p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$max-widths</code></td><td>Map</td><td><code>$container-max-widths</code></td><td>Container max widths</td></tr>
+<tr><td><code>$breakpoints</code></td><td>Map</td><td><code>$grid-breakpoints</code></td><td>Grid breakpoints</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="make-grid-row"></a><a href="#make-grid-row" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>make-grid-row</code></h4>
+<pre><code class="hljs css language-scss">@<span class="hljs-keyword">include</span> make-grid-row(<span class="hljs-variable">$gutter</span>);
+</code></pre>
+<p>Applies the row styles.</p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$gutter</code></td><td>Number</td><td><code>$grid-gutter-width</code></td><td>Gutter width</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="make-grid-col-ready"></a><a href="#make-grid-col-ready" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>make-grid-col-ready</code></h4>
+<pre><code class="hljs css language-scss">@<span class="hljs-keyword">include</span> make-grid-col-ready(<span class="hljs-variable">$gutter</span>);
+</code></pre>
+<p>Applies the common column styles.</p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$gutter</code></td><td>Number</td><td><code>$grid-gutter-width</code></td><td>Gutter width</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="make-grid-col"></a><a href="#make-grid-col" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>make-grid-col</code></h4>
+<pre><code class="hljs css language-scss">@<span class="hljs-keyword">include</span> make-grid-col(<span class="hljs-variable">$size</span>, <span class="hljs-variable">$columns</span>: <span class="hljs-variable">$grid-columns</span>, <span class="hljs-variable">$gutter</span>);
+</code></pre>
+<p>Applies the column styles.</p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$size</code></td><td>Number</td><td>-</td><td>Column size</td></tr>
+<tr><td><code>$columns</code></td><td>Number</td><td><code>$grid-columns</code></td><td>Number of the columns</td></tr>
+<tr><td><code>$gutter</code></td><td>Number</td><td><code>$grid-gutter-width</code></td><td>Gutter width</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="make-grid-col-offset"></a><a href="#make-grid-col-offset" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>make-grid-col-offset</code></h4>
+<pre><code class="hljs css language-scss">@<span class="hljs-keyword">include</span> make-grid-col-offset(<span class="hljs-variable">$size</span>, <span class="hljs-variable">$columns</span>);
+</code></pre>
+<p>Applies the column offset styles.</p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$size</code></td><td>Number</td><td>-</td><td>Column size</td></tr>
+<tr><td><code>$columns</code></td><td>Number</td><td><code>$grid-columns</code></td><td>Number of the columns</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="example-usage"></a><a href="#example-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example usage</h3>
+<p>You can modify the variables to your own custom values, or just use the mixins with their default values. Here’s an example of using the default settings to create a two-column layout with a gap between.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-selector-class">.example-container</span> {
+  @<span class="hljs-keyword">include</span> make-grid-container();
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">800px</span>;
+}
+
+<span class="hljs-selector-class">.example-row</span> {
+  @<span class="hljs-keyword">include</span> make-grid-row();
+}
+
+<span class="hljs-selector-class">.example-content-main</span> {
+  @<span class="hljs-keyword">include</span> make-grid-col-ready();
+
+  @<span class="hljs-keyword">include</span> media-breakpoint-up(sm) {
+    @<span class="hljs-keyword">include</span> make-grid-col(<span class="hljs-number">6</span>);
+  }
+
+  @<span class="hljs-keyword">include</span> media-breakpoint-up(lg) {
+    @<span class="hljs-keyword">include</span> make-grid-col(<span class="hljs-number">8</span>);
+  }
+}
+
+<span class="hljs-selector-class">.example-content-secondary</span> {
+  @<span class="hljs-keyword">include</span> make-grid-col-ready();
+
+  @<span class="hljs-keyword">include</span> media-breakpoint-up(sm) {
+    @<span class="hljs-keyword">include</span> make-grid-col(<span class="hljs-number">6</span>);
+  }
+
+  @<span class="hljs-keyword">include</span> media-breakpoint-up(lg) {
+    @<span class="hljs-keyword">include</span> make-grid-col(<span class="hljs-number">4</span>);
+  }
+}
+</code></pre>
+<div class="grid-example">
+  <div class="example-container">
+    <div class="example-row">
+      <div class="example-content-main">Main content</div>
+      <div class="example-content-secondary">Secondary content</div>
+    </div>
+  </div>
+</div>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-content-main"</span>&gt;</span>Main content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"example-content-secondary"</span>&gt;</span>Secondary content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="customizing-the-grid"></a><a href="#customizing-the-grid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Customizing the grid</h2>
+<p>Using our built-in grid Sass variables and maps, it’s possible to completely customize the predefined grid classes. You are free to change the number of tiers, the media query dimensions, and the container widths. You can find the Sass variables in <code>abstracts/_variables.scss</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="columns-and-gutters"></a><a href="#columns-and-gutters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Columns and gutters</h3>
+<p>The number of grid columns can be modified via Sass variables. <code>$grid-columns</code> is used to generate the widths (in percent) of each individual column while <code>$grid-gutter-width</code> sets the width for the column gutters.</p>
+<h3><a class="anchor" aria-hidden="true" id="grid-tiers"></a><a href="#grid-tiers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Grid tiers</h3>
+<p>Moving beyond the columns themselves, you may also customize the number of grid tiers. If you wanted just four grid tiers, you’d update the <code>$grid-breakpoints</code> and <code>$container-max-widths</code> to something like this:</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$grid-breakpoints</span>: (
+  xs: <span class="hljs-number">0</span>,
+  sm: <span class="hljs-number">480px</span>,
+  md: <span class="hljs-number">768px</span>,
+  lg: <span class="hljs-number">1024px</span>,
+);
+
+<span class="hljs-variable">$container-max-widths</span>: (
+  sm: <span class="hljs-number">420px</span>,
+  md: <span class="hljs-number">720px</span>,
+  lg: <span class="hljs-number">960px</span>,
+);
+</code></pre>
+<p>Responsive visibility utilities will also be updated to use the custom breakpoints. Make sure to set grid values in <code>px</code> (not <code>rem</code>, <code>em</code>, or <code>%</code>).</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/scss-starter/docs/getting-started/architecture"><span class="arrow-prev">← </span><span>Architecture</span></a><a class="docs-next button" href="/scss-starter/docs/core/mixins"><span>Mixins</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#how-it-works">How it works</a></li><li><a href="#grid-options">Grid options</a></li><li><a href="#auto-layout-columns">Auto-layout columns</a><ul class="toc-headings"><li><a href="#equal-width">Equal-width</a></li><li><a href="#setting-one-column-width">Setting one column width</a></li><li><a href="#variable-width-content">Variable width content</a></li></ul></li><li><a href="#responsive-classes">Responsive classes</a><ul class="toc-headings"><li><a href="#all-breakpoints">All breakpoints</a></li><li><a href="#stacked-to-horizontal">Stacked to horizontal</a></li><li><a href="#mix-and-match">Mix and match</a></li></ul></li><li><a href="#alignment">Alignment</a><ul class="toc-headings"><li><a href="#vertical-alignment">Vertical alignment</a></li><li><a href="#horizontal-alignment">Horizontal alignment</a></li><li><a href="#no-gutters">No gutters</a></li><li><a href="#column-wrapping">Column wrapping</a></li><li><a href="#column-breaks">Column breaks</a></li></ul></li><li><a href="#offsetting-columns">Offsetting columns</a><ul class="toc-headings"><li><a href="#offset-classes">Offset classes</a></li><li><a href="#margin-utilities">Margin utilities</a></li></ul></li><li><a href="#nesting">Nesting</a></li><li><a href="#sass-mixins">Sass mixins</a><ul class="toc-headings"><li><a href="#variables">Variables</a></li><li><a href="#mixins">Mixins</a></li><li><a href="#example-usage">Example usage</a></li></ul></li><li><a href="#customizing-the-grid">Customizing the grid</a><ul class="toc-headings"><li><a href="#columns-and-gutters">Columns and gutters</a></li><li><a href="#grid-tiers">Grid tiers</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/scss-starter/" class="nav-home"></a><div><h5>Docs</h5><a href="/scss-starter/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/scss-starter/docs/en/doc2.html">Guides (or other categories)</a><a href="/scss-starter/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/scss-starter/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/scss-starter/blog">Blog</a><a href="https://github.com/atolye15/scss-starter">GitHub</a><a class="github-button" href="https://github.com/atolye15/scss-starter" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/scss-starter/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Atölye15</section></footer></div></body></html>
