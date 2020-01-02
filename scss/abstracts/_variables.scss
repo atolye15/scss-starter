@@ -124,23 +124,30 @@ $g-pads: (
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
+// While SCSS Starter uses ems or rems for defining most sizes,
+// `px`s are used for grid breakpoints and container widths.
+// This is because the viewport width is in pixels and does not change with the font size.
+// See: https://drafts.csswg.org/mediaqueries-3/#units
+
+// stylelint-disable-next-line meowtec/no-px
 $grid-breakpoints: (
   xs: 0,
-  sm: px-to-rem(544px),
-  md: px-to-rem(768px),
-  lg: px-to-rem(992px),
-  xl: px-to-rem(1200px),
+  sm: 544px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
 ) !default;
 
 // Grid containers
 //
 // Define the maximum width of `.container` for different screen sizes.
 
+// stylelint-disable-next-line meowtec/no-px
 $container-max-widths: (
-  sm: px-to-rem(576px),
-  md: px-to-rem(720px),
-  lg: px-to-rem(940px),
-  xl: px-to-rem(1140px),
+  sm: 576px,
+  md: 720px,
+  lg: 940px,
+  xl: 1140px,
 ) !default;
 
 // Grid columns
@@ -150,7 +157,6 @@ $container-max-widths: (
 $grid-columns: 12 !default;
 $grid-gutter-width: px-to-rem(32px) !default;
 
+// `z-index` properties
 //
-// Z-index
-// Site genelinde kullanılan z-indexler burada tanımlanmalıdır
-// -------------------------
+//  The global `z-index` values should be defined below
