@@ -10,3 +10,4 @@ dist/
 package-lock.json
 yarn-error.log
 website/build
+website/static/css/custom.css

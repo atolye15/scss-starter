@@ -1,0 +1,88 @@
+@import '../../../scss/abstracts/index';
+@import '../../../scss/base/utilities';
+@import '../../../scss/base/grid';
+
+.example-container {
+  @include make-grid-container();
+  // stylelint-disable-next-line meowtec/no-px
+  max-width: 800px;
+}
+
+.example-row {
+  @include make-grid-row();
+}
+
+.example-content-main {
+  @include make-grid-col-ready();
+
+  @include media-breakpoint-up(sm) {
+    @include make-grid-col(6);
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include make-grid-col(8);
+  }
+}
+
+.example-content-secondary {
+  @include make-grid-col-ready();
+
+  @include media-breakpoint-up(sm) {
+    @include make-grid-col(6);
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include make-grid-col(4);
+  }
+}
+
+/* your custom css */
+
+.table-subhead {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.grid-example {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.grid-example--vertical-alignment .row {
+  min-height: 10rem;
+  background-color: #f7f7f7;
+}
+
+.grid-example .row + .row {
+  margin-top: 1rem;
+}
+
+.grid-example .row > .col,
+.grid-example .example-row > .example-content-main,
+.grid-example .example-row > .example-content-secondary {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border: 1px solid #d7d7d7;
+  background-color: #f7f7f7;
+  font-size: 0.875rem;
+}
+
+// stylelint-disable-next-line selector-max-class, selector-max-compound-selectors, selector-max-specificity
+.grid-example .col > .row > .col {
+  background-color: #e6e6e6;
+}
+
+// @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+// }
+
+// @media only screen and (min-width: 1024px) {
+// }
+
+// @media only screen and (max-width: 1023px) {
+// }
+
+// @media only screen and (min-width: 1400px) {
+// }
+
+// @media only screen and (min-width: 1500px) {
+// }

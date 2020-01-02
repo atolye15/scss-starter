@@ -157,7 +157,6 @@ $container-max-widths: (
 $grid-columns: 12 !default;
 $grid-gutter-width: px-to-rem(32px) !default;
 
+// `z-index` properties
 //
-// Z-index
-// Site genelinde kullanılan z-indexler burada tanımlanmalıdır
-// -------------------------
+//  The global `z-index` values should be defined below
