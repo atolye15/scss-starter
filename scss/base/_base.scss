@@ -34,6 +34,18 @@ html {
   }
 }
 
+// Root
+//
+// 1. Ability to the value of the root font sizes, affecting the value of `rem`.
+//    null by default, thus nothing is generated.
+
+// stylelint-disable-next-line meowtec/no-px
+@if $g-font-size-root != 16px {
+  :root {
+    font-size: $g-font-size-root; // 1
+  }
+}
+
 //
 // Body
 //
