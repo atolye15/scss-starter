@@ -98,8 +98,8 @@ img {
 hr {
   border: 0;
   border-top: 1px solid;
-  margin-top: $g-line-height-computed;
-  margin-bottom: $g-line-height-computed;
+  margin-top: $g-hr-margin-ends;
+  margin-bottom: $g-hr-margin-ends;
   color: $g-hr-border-color;
 }
 
