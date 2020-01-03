@@ -27,15 +27,15 @@ $g-font-family-base: $g-font-family-sans-serif !default;
 $g-font-size-root: 16px !default;
 $g-font-size-base: 1rem !default;
 
+// Unit-less `line-height` for use in components like buttons.
+$g-line-height-base: (24 / 16) !default;
+
 $g-font-size-h1: px-to-rem(36px) !default;
 $g-font-size-h2: px-to-rem(30px) !default;
 $g-font-size-h3: px-to-rem(24px) !default;
 $g-font-size-h4: px-to-rem(18px) !default;
 $g-font-size-h5: 1rem !default;
 $g-font-size-h6: px-to-rem(14px) !default;
-
-// Unit-less `line-height` for use in components like buttons.
-$g-line-height-base: (24 / 16) !default;
 
 // By default, this inherits from the `<body>`.
 $g-headings-font-family: inherit !default;
