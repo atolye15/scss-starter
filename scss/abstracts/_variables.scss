@@ -7,12 +7,12 @@
 // -------------------------
 
 // Transition Duration
-$g-transition-duration: 0.4s;
+$g-transition-duration: 0.4s !default;
 
 //  LINK
 // -------------------------
 
-$g-link-transition: null;
+$g-link-transition: null !default;
 $g-link-hover-decoration: underline !default;
 
 //  TYPOGRAPHY
@@ -43,7 +43,7 @@ $g-line-height-computed: px-to-rem(($g-font-size-base-px * $g-line-height-base))
 $g-headings-font-family: inherit !default;
 $g-headings-font-weight: 500 !default;
 $g-headings-line-height: 1.1 !default;
-$g-headings-margin-bottom: 1rem;
+$g-headings-margin-bottom: 1rem !default;
 
 // FONT SIZING
 // -------------------------
@@ -55,7 +55,7 @@ $g-font-size-medium: px-to-rem($g-font-size-base-px + 2px);
 $g-font-size-large: px-to-rem($g-font-size-base-px + 4px);
 $g-font-size-xlarge: px-to-rem($g-font-size-base-px + 8px);
 
-$g-hr-margin-ends: px-to-rem(24px);
+$g-hr-margin-ends: px-to-rem(24px) !default;
 
 // Paragraphs
 //
@@ -73,7 +73,7 @@ $g-paragraph-margin-top: 1rem !default;
 // large: 40px
 // xlarge:  48px
 // -------------------------
-$g-base-gap: $g-line-height-computed;
+$g-base-gap: $g-line-height-computed !default;
 $g-gaps: (
   normal: $g-base-gap,
   small: (
@@ -102,7 +102,7 @@ $g-gaps: (
 // normal: 32px
 // small: 24px | xsmall: 16px | 2xsmall: 8px
 // -------------------------
-$g-base-padding: px-to-rem(32px);
+$g-base-padding: px-to-rem(32px) !default;
 $g-pads: (
   normal: $g-base-padding,
   small: (
