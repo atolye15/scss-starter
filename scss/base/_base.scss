@@ -163,6 +163,6 @@ h6,
 //
 
 p {
-  margin-top: ($g-line-height-computed / 1.5);
+  margin-top: $g-paragraph-margin-top;
   margin-bottom: 0;
 }

@@ -57,6 +57,12 @@ $g-font-size-xlarge: px-to-rem($g-font-size-base-px + 8px);
 
 $g-hr-margin-ends: px-to-rem(24px);
 
+// Paragraphs
+//
+// Style p element.
+
+$g-paragraph-margin-top: 1rem !default;
+
 // GAPS
 //
 // normal: 24px <= Global line height
