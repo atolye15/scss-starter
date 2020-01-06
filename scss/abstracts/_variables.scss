@@ -24,8 +24,7 @@ $g-font-family-base: $g-font-family-sans-serif !default;
 
 // $g-font-size-root effects the value of `rem`, which is used for as well font sizes, paddings and margins
 // $g-font-size-base effects the font size of the body text
-// stylelint-disable-next-line meowtec/no-px
-$g-font-size-root: 16px !default;
+$g-font-size-root: null !default;
 $g-font-size-base: 1rem !default;
 
 $g-line-height-base: (24 / 16) !default;
