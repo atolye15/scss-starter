@@ -34,6 +34,15 @@ html {
   }
 }
 
+// Root
+//
+// 1. Ability to the value of the root font sizes, affecting the value of `rem`.
+//    null by default, thus nothing is generated.
+
+:root {
+  font-size: $g-font-size-root; // 1
+}
+
 //
 // Body
 //
@@ -86,10 +95,16 @@ img {
 hr {
   border: 0;
   border-top: 1px solid;
-  margin-top: $g-line-height-computed;
-  margin-bottom: $g-line-height-computed;
+  margin-top: $g-hr-margin-ends;
+  margin-bottom: $g-hr-margin-ends;
   color: $g-hr-border-color;
 }
+
+// Typography
+//
+// 1. Remove top margins from headings
+//    By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
+//    margin for easier control within type scales as it avoids margin collapsing.
 
 h1,
 h2,
@@ -105,26 +120,9 @@ h6,
 .h6,
 .heading {
   @include heading-styles();
-}
 
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3 {
-  margin-top: $g-line-height-computed;
-  margin-bottom: $g-line-height-computed;
-}
-
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  margin-top: ($g-line-height-computed / 1.5);
-  margin-bottom: ($g-line-height-computed / 1.5);
+  margin-top: 0; // 1
+  margin-bottom: $g-headings-margin-bottom;
 }
 
 h1,
@@ -162,57 +160,6 @@ h6,
 //
 
 p {
-  margin-top: ($g-line-height-computed / 1.5);
+  margin-top: $g-paragraph-margin-top;
   margin-bottom: 0;
-}
-
-//
-// Emphasis & misc
-//
-
-mark {
-  padding: 0.2em;
-}
-
-//
-// Lists
-//
-
-// Unordered and Ordered lists
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: ($g-line-height-computed / 1.5);
-
-  ul,
-  ol {
-    margin-bottom: 0;
-  }
-}
-
-// List options
-
-// Description Lists
-dl {
-  margin-top: 0; // Remove browser default
-  margin-bottom: $g-line-height-computed;
-}
-
-dt {
-  font-weight: 700;
-}
-
-dd {
-  margin-left: 0; // Undo browser default
-}
-
-//
-// Misc
-//
-
-// Addresses
-address {
-  margin-bottom: $g-line-height-computed;
-  font-style: normal;
-  line-height: inherit;
 }
