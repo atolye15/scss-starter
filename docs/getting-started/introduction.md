@@ -15,6 +15,8 @@ SCSS Starter is not a UI framework. It's designed especially for higher producti
 
 - To help you improve your future-friendly website building skills, we've improved our documentation so you can learn more quickly.
 
+- A solid base built on [normalize.css](http://necolas.github.io/normalize.css/) to fix cross-browser compatibility issues.
+
 - SCSS Starter has been being used on many projects varying in size for several years.
 
 - An extensive toolset is at your command at your project's start.
@@ -47,3 +49,7 @@ Looking to quickly add SCSS Starter to your project? Using a need to download th
 ```
 
 Alternatively you can checkout our [installation guide](https://atolye15.github.io/scss-starter/docs/getting-started/download).
+
+## Community
+
+- Follow [@atolye15](https://twitter.com/atolye15) on Twitter.
