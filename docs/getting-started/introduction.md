@@ -5,7 +5,7 @@ title: Introduction
 
 These SCSS Starter docs help you learn and use the SCSS Starter, from your first app to optimizing complex enterprise apps.
 
-It's not a UI framework. SCSS Starter designed specially for higher productivity and code quality resulting in cleaner, maintainable and scalable code.
+It's not a UI framework. SCSS Starter designed especially for higher productivity and code quality resulting in cleaner, maintainable and scalable code.
 
 ## Straightforward
 
@@ -13,11 +13,11 @@ SCSS starter provides uncomplicated and easy to understand utility classes and h
 
 ## Responsive
 
-Extremely easy to build responsive interfaces without the need of custom CSS. All utility classes and grid system can be extended with responsive variants.
+Extremely easy to build responsive interfaces without the need for custom SCSS. All utility classes and a grid system can be extended with responsive variants.
 
 ## Customizable
 
-Every part of SCSS Starter can be customized according to your project's needs including variables, utilities, grid system etc.
+Every part of SCSS Starter can be customized according to your project's needs including variables, utilities, a grid system, etc.
 
 ## Extendable
 
@@ -25,11 +25,11 @@ Utilities and mixins can be extended if needed.
 
 ## Speeds up development
 
-Wide range of tools are at your command when your project's start.
+A wide range of tools is at your command when your project's start.
 
 ## Field Tested
 
-SCSS Starter have been being used at many projects
+SCSS Starter has been being used at many projects.
 
 ## Faster to Learn
 
@@ -51,7 +51,7 @@ Looking to quickly add SCSS Starter to your project? Using a need to download th
 
 > All you need is the `scss` folder, feel free to delete other files.
 
-```css
+```scss
 // Base scss file in your project
 @import 'scss/main';
 ```
