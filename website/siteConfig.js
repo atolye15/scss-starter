@@ -30,6 +30,7 @@ const siteConfig = {
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
+  twitterUsername: 'atolye15',
   projectName: 'scss-starter',
   organizationName: 'atolye15',
   // For top-level user or org sites, the organization is still the same.

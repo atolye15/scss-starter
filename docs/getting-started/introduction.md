@@ -33,10 +33,6 @@ SCSS Starter is not a UI framework. It's designed especially for higher producti
 
 SCSS Starter supports the latest, stable releases of all major browsers and platforms. On Windows, we support Microsoft Edge. It does not use any tool for browser support. Using autoprefixer for browser support is up to you.
 
-## Architecture
-
-## CSS Methodology
-
 ## Quick Start
 
 Looking to quickly add SCSS Starter to your project? Using a need to download the source files? You can [download](https://github.com/atolye15/scss-starter/releases) it directly.
@@ -48,8 +44,11 @@ Looking to quickly add SCSS Starter to your project? Using a need to download th
 @import 'scss/main';
 ```
 
-Alternatively you can checkout our [installation guide](https://atolye15.github.io/scss-starter/docs/getting-started/download).
+Alternatively you can checkout our [installation guide](download).
 
 ## Community
 
-- Follow [@atolye15](https://twitter.com/atolye15) on Twitter.
+Stay up to date on the development of SCSS Starter and reach out to the community with these helpful resources.
+
+- Follow [@atolye15 on Twitter](https://twitter.com/atolye15).
+- Follow [@atolye15 on Github](https://github.com/atolye15/).
