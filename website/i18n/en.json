@@ -36,8 +36,8 @@
     },
     "categories": {
       "Getting Started": "Getting Started",
-      "Layout": "Layout",
       "Core": "Core",
+      "Layout": "Layout",
       "Utilities": "Utilities"
     }
   },
