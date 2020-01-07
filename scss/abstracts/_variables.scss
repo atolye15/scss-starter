@@ -27,7 +27,7 @@ $g-font-family-base: $g-font-family-sans-serif !default;
 $g-font-size-root: null !default;
 $g-font-size-base: 1rem !default;
 
-$g-line-height-base: (24 / 16) !default;
+$g-line-height-base: 1.5 !default;
 
 $g-font-size-h1: px-to-rem(36px) !default;
 $g-font-size-h2: px-to-rem(30px) !default;
@@ -52,7 +52,7 @@ $g-font-size-medium: $g-font-size-base + px-to-rem(2px) !default;
 $g-font-size-large: $g-font-size-base + px-to-rem(4px) !default;
 $g-font-size-xlarge: $g-font-size-base + px-to-rem(8px) !default;
 
-$g-hr-margin-ends: px-to-rem(24px) !default;
+$g-hr-margin-ends: 1.5rem !default;
 
 //
 // Paragraphs
@@ -103,7 +103,7 @@ $g-gaps: (
 // normal: 32px
 // small: 24px | xsmall: 16px | 2xsmall: 8px
 
-$g-base-padding: px-to-rem(32px) !default;
+$g-base-padding: 2rem !default;
 $g-pads: (
   normal: $g-base-padding,
   small: (
