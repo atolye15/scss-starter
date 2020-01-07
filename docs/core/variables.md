@@ -39,7 +39,7 @@ $g-link-hover-decoration: underline !default;
 
 ### `$g-font-size-root`
 
-Font size of the `:root` element. It effects the value of `rem`, which is used for as well font sizes, paddings and margins.
+Font size of the `:root` element. `$g-font-size-root` effects the value of `rem`, which is used for as well font sizes, paddings and margins.
 
 ```scss
 $g-font-size-root: null !default;
