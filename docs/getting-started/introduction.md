@@ -51,7 +51,7 @@ Looking to quickly add SCSS Starter to your project? Using a need to download th
 
 > All you need is the `scss` folder, feel free to delete other files.
 
-```css
+```scss
 // Base scss file in your project
 @import 'scss/main';
 ```
