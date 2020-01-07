@@ -11,6 +11,9 @@
       "core/mixins": {
         "title": "Mixins"
       },
+      "core/variables": {
+        "title": "Variables"
+      },
       "getting-started/architecture": {
         "title": "Architecture"
       },
