@@ -17,7 +17,7 @@ $g-transition-duration: 0.4s !default;
 
 ## Links
 
-Style anchor elements. More variables for anchors can be found in the [Colors](core/colors.md) section.
+Anchor element styles. More variables for anchors can be found in the [Colors](core/colors.md) section.
 
 ### `$g-link-transition`
 
