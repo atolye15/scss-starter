@@ -136,7 +136,7 @@ $g-link-hover-color: darken($g-link-color, 15%) !default;
 
 ### `$g-border-color`
 
-Global body border color.
+Global border color.
 
 ```scss
 $g-border-color: color-palette('gray', 100) !default;
