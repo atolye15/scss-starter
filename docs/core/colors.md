@@ -54,7 +54,7 @@ $color-black: #000;
 
 ### `$primary-color`
 
-Global primary color. This is the value used in the `u-color-primary` and `u-background-color-primary` utility class.
+Global primary color. This is the value used in the `u-color-primary` and `u-background-color-primary` utility classes.
 
 ```scss
 $primary-color: #008cba;
