@@ -23,6 +23,9 @@
       "getting-started/download": {
         "title": "Download"
       },
+      "getting-started/introduction": {
+        "title": "Introduction"
+      },
       "layout/grid": {
         "title": "Grid"
       },

@@ -1,7 +1,11 @@
 {
   "docs": {
-    "Getting Started": ["getting-started/download", "getting-started/architecture"],
     "Core": ["core/colors", "core/variables", "core/mixins", "core/functions"],
+    "Getting Started": [
+      "getting-started/introduction",
+      "getting-started/download",
+      "getting-started/architecture"
+    ],
     "Layout": ["layout/grid"],
     "Utilities": ["utilities/predefined-classes", "utilities/responsive", "utilities/customizing"]
   }
