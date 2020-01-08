@@ -94,7 +94,7 @@ $warning-color: #f08a24;
 
 ### `$info-color`
 
-Global info color, this is the value used in the `u-background-color-info` utility class.
+Global info color.
 
 ```scss
 $info-color: #a0d3e8;
