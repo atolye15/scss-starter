@@ -78,7 +78,7 @@ $alert-color: #f04124;
 
 ### `$success-color`
 
-Global success color, this is the value used in the `u-color-success` and `u-background-color-success` utility class.
+Global success color. This is the value used in the `u-color-success` and `u-background-color-success` utility class.
 
 ```scss
 $success-color: #43ac6a;
