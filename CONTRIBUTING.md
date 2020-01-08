@@ -80,6 +80,6 @@ We use [docusaurus](https://docusaurus.io/) for our documentation website.
 3. Run `yarn start` command to build environment and start watch processes.
 4. Finally, you can start making changes.
 
-## License
+## License
 
 By contributing your code, you agree to license your contribution under the MIT license
