@@ -120,7 +120,7 @@ $g-text-color: color-palette('gray', 900) !default;
 
 ### `$g-link-color`
 
-Global body link color, this is thee value used in `base/_base.scss`.
+Color of the `a` element.
 
 ```scss
 $g-link-color: $primary-color !default;
