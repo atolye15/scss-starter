@@ -9,7 +9,7 @@ It's designed especially for higher productivity and code quality resulting in c
 
 We have provided detailed documentation to help new users to get started. We are always open to any feedback and we'd be happy to answer any questions a user may have about SCSS Starter.
 
-## Why It's awesome
+## Why It's Awesome
 
 We have been using SCSS starter kit internally for a while now and developing it based on the needs of projects that vary in size.
 
