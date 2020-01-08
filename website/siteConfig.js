@@ -30,6 +30,7 @@ const siteConfig = {
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
+  twitterUsername: 'atolye15',
   projectName: 'scss-starter',
   organizationName: 'atolye15',
   // For top-level user or org sites, the organization is still the same.
@@ -38,7 +39,7 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: 'getting-started/download', label: 'Docs' },
+    { doc: 'getting-started/introduction', label: 'Docs' },
     {
       href: 'https://github.com/atolye15/scss-starter',
       label: 'GitHub',
