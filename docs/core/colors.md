@@ -112,7 +112,7 @@ $g-body-bg: $color-white !default;
 
 ### `$g-text-color`
 
-Global body text color, this is the value used in `base/_base.scss`.
+Text color of the `body` element.
 
 ```scss
 $g-text-color: color-palette('gray', 900) !default;
