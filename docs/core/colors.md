@@ -9,7 +9,7 @@ You can find and customize these variables in our `abstracts/_colors.scss` file.
 
 ### `$color-palette-gray`
 
-Global color palette gray, this is the value used in the `$g-color-palettes` variables.
+Gray color palette.
 
 ```scss
 $color-palette-gray: (
