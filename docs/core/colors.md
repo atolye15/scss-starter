@@ -28,7 +28,7 @@ $color-palette-gray: (
 
 ### `$g-color-palettes`
 
-Collection of the color palette. You can use these values with [color-palette](functions#color-palette) function as well.
+Collection of the color palettes. You can use these values with [color-palette](functions#color-palette) function as well.
 
 ```scss
 $g-color-palettes: (
