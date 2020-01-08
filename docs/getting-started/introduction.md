@@ -3,48 +3,30 @@ id: introduction
 title: Introduction
 ---
 
-These SCSS Starter docs help you learn and use the SCSS Starter, from your first app to optimizing complex enterprise apps.
+SCSS Starter is a boilerplate with CSS-resets, standard [variables](core/variables.md), common [functions](core/functions.md) and [mixins](core/mixins.md) to kickstart CSS authoring. It also has built-in [utility](utilities/predefined-classes.md) and [grid](layout/grid.md) systems.
 
-SCSS Starter is not a UI framework. It's designed especially for higher productivity and code quality resulting in cleaner, maintainable and scalable code.
+It's designed especially for higher productivity and code quality resulting in cleaner, maintainable and scalable code.
 
-## Why it's awesome
+We have provided detailed documentation to help new users to get started. We are always open to any feedback and we'd be happy to answer any questions a user may have about SCSS Starter.
 
-- We have provided detailed documentation to help new users get started. We are also always open to feedback and can answer any questions a user may have about SCSS Starter.
+## Why It's awesome
 
-> Have a any question or bug report <https://github.com/atolye15/scss-starter/issues>
+We have been using SCSS starter kit internally for a while now and developing it based on the needs of projects that vary in size.
 
-- To help you improve your future-friendly website building skills, we've improved our documentation so you can learn more quickly.
+Because;
 
-- A solid base built on [normalize.css](http://necolas.github.io/normalize.css/) to fix cross-browser compatibility issues.
-
-- SCSS Starter has been being used on many projects varying in size for several years.
-
-- An extensive toolset is at your command at your project's start.
-
-- Utilities and mixins can be extended if needed.
-
-- Every part of SCSS Starter can be customized according to your project's needs including variables, utilities, a grid system, etc.
-
-- Extremely easy to build responsive interfaces without the need for custom SCSS. All utility classes and a grid system can be extended with responsive variants.
-
-- SCSS starter provides a wide range of uncomplicated and easy to understand utility classes and helper methods.
+- It has a solid base built on [normalize.css](http://necolas.github.io/normalize.css/) to fix cross-browser compatibility issues.
+- It has built-in utility and grid systems.
+- It has well designed [architecture](getting-started/architecture.md).
+- It has supportive mixins & functions.
+- Every part of SCSS Starter can be customized based on your project's needs including variables, utilities, a grid system, etc.
+- It is extremely easy to build responsive interfaces without extra effort. All utility classes and a grid system can be extended with responsive variants.
+- Because SCSS Starter doesn't have any styles other than basic things, it does not conflict with your own styles.
+- Utilities, mixins and functions can be extended if needed.
 
 ## Browser Support
 
 SCSS Starter supports the latest, stable releases of all major browsers and platforms. On Windows, we support Microsoft Edge. It does not use any tool for browser support. Using autoprefixer for browser support is up to you.
-
-## Quick Start
-
-Looking to quickly add SCSS Starter to your project? Using a need to download the source files? You can [download](https://github.com/atolye15/scss-starter/releases) it directly.
-
-> All you need is the `scss` folder, feel free to delete other files.
-
-```scss
-// Base scss file in your project
-@import 'scss/main';
-```
-
-Alternatively you can checkout our [installation guide](download).
 
 ## Community
 
