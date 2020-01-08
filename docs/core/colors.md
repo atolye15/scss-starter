@@ -86,7 +86,7 @@ $success-color: #43ac6a;
 
 ### `$warning-color`
 
-Global warning color. This is the value used in the `u-color-warning` and `u-background-color-warning` utility class.
+Global warning color. This is the value used in the `u-color-warning` and `u-background-color-warning` utility classes.
 
 ```scss
 $warning-color: #f08a24;
