@@ -128,7 +128,7 @@ $g-link-color: $primary-color !default;
 
 ### `$g-link-hover-color`
 
-Global body link hover color, this is thee value used in `base/_base.scss`.
+Color of the `a` element in hover state.
 
 ```scss
 $g-link-hover-color: darken($g-link-color, 15%) !default;
