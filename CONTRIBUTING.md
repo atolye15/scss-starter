@@ -6,9 +6,9 @@ Please take a moment to review this document in order to make the contribution p
 
 Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
-## Using the issue tracker
+## Using the issue tracker
 
-## Bug Reports
+## Bug Reports
 
 Before reporting a bug report:
 
@@ -57,4 +57,4 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 6. Make sure your code lints.(`yarn lint`)
 7. Finally, submit a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) with your changes!
 
-## Code of Conduct
+## Code of Conduct
