@@ -26,7 +26,7 @@ Because;
 
 ## Browser Support
 
-SCSS Starter supports the latest, stable releases of all major browsers and platforms. On Windows, we support Microsoft Edge. It does not use any tool for browser support. Using autoprefixer for browser support is up to you.
+SCSS Starter supports the latest, stable releases of all major browsers and platforms. On Windows, we support Microsoft Edge. SCSS Starter doesn't use any tool for browser support. Using autoprefixer for browser support is up to you.
 
 ## Community
 
