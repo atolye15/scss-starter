@@ -62,7 +62,7 @@ $primary-color: #008cba;
 
 ### `$secondary-color`
 
-Global secondary color, this is the value used in the `u-background-color-secondary` utility class.
+Global secondary color.
 
 ```scss
 $secondary-color: #e7e7e7;
