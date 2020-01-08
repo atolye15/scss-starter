@@ -104,7 +104,7 @@ $info-color: #a0d3e8;
 
 ### `$g-body-bg`
 
-Global body background color, this is the value used in `base/_base.scss`.
+Background color of the `body` element.
 
 ```scss
 $g-body-bg: $color-white !default;
