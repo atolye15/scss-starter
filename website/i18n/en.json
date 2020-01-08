@@ -11,11 +11,17 @@
       "core/mixins": {
         "title": "Mixins"
       },
+      "core/variables": {
+        "title": "Variables"
+      },
       "getting-started/architecture": {
         "title": "Architecture"
       },
       "getting-started/download": {
         "title": "Download"
+      },
+      "getting-started/introduction": {
+        "title": "Introduction"
       },
       "layout/grid": {
         "title": "Grid"
@@ -36,8 +42,8 @@
     },
     "categories": {
       "Getting Started": "Getting Started",
-      "Layout": "Layout",
       "Core": "Core",
+      "Layout": "Layout",
       "Utilities": "Utilities"
     }
   },
