@@ -144,7 +144,7 @@ $g-border-color: color-palette('gray', 100) !default;
 
 ### `$g-text-muted-color`
 
-Global text muted color, this is the value used in `u-color-muted`.
+Global text muted color, this is the value used in the `u-color-muted` utility class.
 
 ```scss
 $g-text-muted-color: color-palette('gray', 600) !default;
