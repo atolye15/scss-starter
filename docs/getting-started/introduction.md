@@ -15,7 +15,7 @@ We have been using SCSS starter kit internally for a while now and developing it
 
 Because;
 
-- It has a solid base built on [normalize.css](http://necolas.github.io/normalize.css/) to fix cross-browser compatibility issues.
+- It has a solid base built upon [normalize.css](http://necolas.github.io/normalize.css/) to fix cross-browser compatibility issues.
 - It has built-in utility and grid systems.
 - It has well designed [architecture](getting-started/architecture.md).
 - It has supportive mixins & functions.
