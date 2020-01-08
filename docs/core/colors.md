@@ -70,7 +70,7 @@ $secondary-color: #e7e7e7;
 
 ### `$alert-color`
 
-Global alert color. This is the value used in the `u-color-alert` and `u-background-color-alert` utility class.
+Global alert color. This is the value used in the `u-color-alert` and `u-background-color-alert` utility classes.
 
 ```scss
 $alert-color: #f04124;
