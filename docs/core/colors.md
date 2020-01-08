@@ -28,7 +28,7 @@ $color-palette-gray: (
 
 ### `$g-color-palettes`
 
-Global color palette, this is the value used in the `color-palette` function. You can use these values with [color-palette](functions#color-palette) function as well.
+Collection of the color palette. You can use these values with [color-palette](functions#color-palette) function as well.
 
 ```scss
 $g-color-palettes: (
@@ -62,7 +62,7 @@ $primary-color: #008cba;
 
 ### `$secondary-color`
 
-Global secondary color, this is the value used in the `u-color-secondary` and `u-background-color-secondary` utility class.
+Global secondary color, this is the value used in the `u-background-color-secondary` utility class.
 
 ```scss
 $secondary-color: #e7e7e7;
@@ -94,7 +94,7 @@ $warning-color: #f08a24;
 
 ### `$info-color`
 
-Global info color, this is the value used in the `u-color-info` and `u-background-color-info` utility class.
+Global info color, this is the value used in the `u-background-color-info` utility class.
 
 ```scss
 $info-color: #a0d3e8;
