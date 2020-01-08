@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Variables · SCSS starter</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="You can find and customize these variables in our `abstracts/_variables.scss` file."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Variables · SCSS starter"/><meta property="og:type" content="website"/><meta property="og:url" content="https://atolye15.github.io/scss-starter/"/><meta property="og:description" content="You can find and customize these variables in our `abstracts/_variables.scss` file."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/scss-starter/undefined"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/scss-starter/js/scrollSpy.js"></script><link rel="stylesheet" href="/scss-starter/css/main.css"/><script src="/scss-starter/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/scss-starter/"><h2 class="headerTitle">SCSS starter</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/scss-starter/docs/getting-started/introduction" target="_self">Docs</a></li><li class=""><a href="https://github.com/atolye15/scss-starter" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Core</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/scss-starter/docs/getting-started/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/getting-started/download">Download</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/getting-started/architecture">Architecture</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Core</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/scss-starter/docs/core/variables">Variables</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/core/mixins">Mixins</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/core/functions">Functions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Layout</h3><ul class=""><li class="navListItem"><a class="navItem" href="/scss-starter/docs/layout/grid">Grid</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Utilities</h3><ul class=""><li class="navListItem"><a class="navItem" href="/scss-starter/docs/utilities/predefined-classes">Predefined Classes</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/utilities/responsive">Responsive</a></li><li class="navListItem"><a class="navItem" href="/scss-starter/docs/utilities/customizing">Customizing</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Variables</h1></header><article><div><span><p>You can find and customize these variables in our <code>abstracts/_variables.scss</code> file.</p>
+<h2><a class="anchor" aria-hidden="true" id="transition"></a><a href="#transition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transition</h2>
+<h3><a class="anchor" aria-hidden="true" id="g-transition-duration"></a><a href="#g-transition-duration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-transition-duration</code></h3>
+<p>Global transition duration.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-transition-duration</span>: <span class="hljs-number">0.4s</span> !default;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="links"></a><a href="#links" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Links</h2>
+<p>Anchor element styles. More variables for anchors can be found in the <a href="core/colors.md">Colors</a> section.</p>
+<h3><a class="anchor" aria-hidden="true" id="g-link-transition"></a><a href="#g-link-transition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-link-transition</code></h3>
+<p>The transition value for the global anchor elements.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-link-transition</span>: null !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-link-hover-decoration"></a><a href="#g-link-hover-decoration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-link-hover-decoration</code></h3>
+<p>The <code>text-decoration</code> value for the global anchor elements in <code>:hover</code> state.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-link-hover-decoration</span>: underline !default;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="typography"></a><a href="#typography" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Typography</h2>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-root"></a><a href="#g-font-size-root" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-root</code></h3>
+<p>Font size of the <code>:root</code> element. <code>$g-font-size-root</code> effects the value of <code>rem</code>, which is used for as well font sizes, paddings and margins.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-root</span>: null !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-base"></a><a href="#g-font-size-base" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-base</code></h3>
+<p>Font size of the body element.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-base</span>: <span class="hljs-number">1rem</span> !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-line-height-base"></a><a href="#g-line-height-base" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-line-height-base</code></h3>
+<p>Line height of the body element.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-line-height-base</span>: <span class="hljs-number">1.5</span> !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-h1"></a><a href="#g-font-size-h1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-h1</code></h3>
+<p>Font size of the h1 element.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-h1</span>: px-to-rem(<span class="hljs-number">36px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-h2"></a><a href="#g-font-size-h2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-h2</code></h3>
+<p>Font size of the h2 element.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-h2</span>: px-to-rem(<span class="hljs-number">30px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-h3"></a><a href="#g-font-size-h3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-h3</code></h3>
+<p>Font size of the h3 element.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-h3</span>: px-to-rem(<span class="hljs-number">24px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-h4"></a><a href="#g-font-size-h4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-h4</code></h3>
+<p>Font size of the h4 element.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-h4</span>: px-to-rem(<span class="hljs-number">18px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-h5"></a><a href="#g-font-size-h5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-h5</code></h3>
+<p>Font size of the h5 element.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-h5</span>: <span class="hljs-number">1rem</span> !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-h6"></a><a href="#g-font-size-h6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-h6</code></h3>
+<p>Font size of the h6 element.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-h6</span>: px-to-rem(<span class="hljs-number">14px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-headings-font-family"></a><a href="#g-headings-font-family" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-headings-font-family</code></h3>
+<p>Font family of the headings.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-headings-font-family</span>: inherit !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-headings-font-weight"></a><a href="#g-headings-font-weight" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-headings-font-weight</code></h3>
+<p>Font weight of the headings.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-headings-font-weight</span>: <span class="hljs-number">500</span> !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-headings-line-height"></a><a href="#g-headings-line-height" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-headings-line-height</code></h3>
+<p>Line height of the headings.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-headings-line-height</span>: <span class="hljs-number">1.1</span> !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-headings-margin-bottom"></a><a href="#g-headings-margin-bottom" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-headings-margin-bottom</code></h3>
+<p>Margin bottom of the headings.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-headings-margin-bottom</span>: <span class="hljs-number">1rem</span> !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-small"></a><a href="#g-font-size-small" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-small</code></h3>
+<p>Global small font size, this is the value used in the <code>u-font-size-small</code> utility class.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-small</span>: <span class="hljs-variable">$g-font-size-base</span> - px-to-rem(<span class="hljs-number">2px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-xsmall"></a><a href="#g-font-size-xsmall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-xsmall</code></h3>
+<p>Global xsmall font size, this is the value used in the <code>u-font-size-xsmall</code> utility class.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-xsmall</span>: <span class="hljs-variable">$g-font-size-base</span> - px-to-rem(<span class="hljs-number">4px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-2xsmall"></a><a href="#g-font-size-2xsmall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-2xsmall</code></h3>
+<p>Global 2xsmall font size, this is the value used in the <code>u-font-size-2xsmall</code> utility class.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-2xsmall</span>: <span class="hljs-variable">$g-font-size-base</span> - px-to-rem(<span class="hljs-number">6px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-medium"></a><a href="#g-font-size-medium" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-medium</code></h3>
+<p>Global medium font size, this is the value used in the <code>u-font-size-medium</code> utility class.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-medium</span>: <span class="hljs-variable">$g-font-size-base</span> + px-to-rem(<span class="hljs-number">2px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-large"></a><a href="#g-font-size-large" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-large</code></h3>
+<p>Global large font size, this is the value used in the <code>u-font-size-large</code> utility class.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-large</span>: <span class="hljs-variable">$g-font-size-base</span> + px-to-rem(<span class="hljs-number">4px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-font-size-xlarge"></a><a href="#g-font-size-xlarge" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-font-size-xlarge</code></h3>
+<p>Global xlarge font size, this is the value used in the <code>u-font-size-xlarge</code> utility class.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-font-size-xlarge</span>: <span class="hljs-variable">$g-font-size-base</span> + px-to-rem(<span class="hljs-number">8px</span>) !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-hr-margin-ends"></a><a href="#g-hr-margin-ends" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-hr-margin-ends</code></h3>
+<p>Top and bottom margin value of the <code>hr</code> element.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-hr-margin-ends</span>: <span class="hljs-number">1.5rem</span> !default;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="paragraphs"></a><a href="#paragraphs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Paragraphs</h2>
+<h3><a class="anchor" aria-hidden="true" id="g-paragraph-margin-top"></a><a href="#g-paragraph-margin-top" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-paragraph-margin-top</code></h3>
+<p>Margin top of the <code>p</code> element</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-paragraph-margin-top</span>: <span class="hljs-number">1rem</span> !default;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="spacing"></a><a href="#spacing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spacing</h2>
+<h3><a class="anchor" aria-hidden="true" id="g-base-gap"></a><a href="#g-base-gap" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-base-gap</code></h3>
+<p>The base value for the gaps.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-base-gap</span>: <span class="hljs-number">1.5rem</span> !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-gaps"></a><a href="#g-gaps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-gaps</code></h3>
+<p>Gap values. These values are generally used for margins, also, the margin utilities are generated using this Sass map. You can use these values with <a href="/scss-starter/docs/core/functions#gap">gap</a> function as well.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-gaps</span>: (
+  normal: <span class="hljs-variable">$g-base-gap</span>,
+  small: (
+    <span class="hljs-variable">$g-base-gap</span> / <span class="hljs-number">1.5</span>,
+  ),
+  xsmall: (
+    <span class="hljs-variable">$g-base-gap</span> / <span class="hljs-number">3</span>,
+  ),
+  <span class="hljs-number">2</span>xsmall: (
+    <span class="hljs-variable">$g-base-gap</span> / <span class="hljs-number">6</span>,
+  ),
+  medium: (
+    <span class="hljs-variable">$g-base-gap</span> * (<span class="hljs-number">4</span> / <span class="hljs-number">3</span>),
+  ),
+  large: (
+    <span class="hljs-variable">$g-base-gap</span> * (<span class="hljs-number">5</span> / <span class="hljs-number">3</span>),
+  ),
+  xlarge: (
+    <span class="hljs-variable">$g-base-gap</span> * <span class="hljs-number">2</span>,
+  ),
+);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-base-padding"></a><a href="#g-base-padding" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-base-padding</code></h3>
+<p>The base value for the gaps.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-base-padding</span>: <span class="hljs-number">2rem</span> !default;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="g-pads"></a><a href="#g-pads" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>$g-pads</code></h3>
+<p>Padding values. These values are generally used for padding, also, the padding utilities are generated using this Sass map. You can use these values with <a href="/scss-starter/docs/core/functions#pad">pad</a> function as well.</p>
+<pre><code class="hljs css language-scss"><span class="hljs-variable">$g-pads</span>: (
+  normal: <span class="hljs-variable">$g-base-padding</span>,
+  small: (
+    <span class="hljs-variable">$g-base-padding</span> * <span class="hljs-number">0.75</span>,
+  ),
+  xsmall: (
+    <span class="hljs-variable">$g-base-padding</span> / <span class="hljs-number">2</span>,
+  ),
+  <span class="hljs-number">2</span>xsmall: (
+    <span class="hljs-variable">$g-base-padding</span> / <span class="hljs-number">4</span>,
+  ),
+  medium: (
+    <span class="hljs-variable">$g-base-padding</span> * <span class="hljs-number">1.25</span>,
+  ),
+  large: (
+    <span class="hljs-variable">$g-base-padding</span> * <span class="hljs-number">1.5</span>,
+  ),
+  xlarge: (
+    <span class="hljs-variable">$g-base-padding</span> * <span class="hljs-number">2</span>,
+  ),
+  <span class="hljs-number">2</span>xlarge: (
+    <span class="hljs-variable">$g-base-padding</span> * <span class="hljs-number">3</span>,
+  ),
+);
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/scss-starter/docs/getting-started/architecture"><span class="arrow-prev">← </span><span>Architecture</span></a><a class="docs-next button" href="/scss-starter/docs/core/mixins"><span>Mixins</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#transition">Transition</a><ul class="toc-headings"><li><a href="#g-transition-duration"><code>$g-transition-duration</code></a></li></ul></li><li><a href="#links">Links</a><ul class="toc-headings"><li><a href="#g-link-transition"><code>$g-link-transition</code></a></li><li><a href="#g-link-hover-decoration"><code>$g-link-hover-decoration</code></a></li></ul></li><li><a href="#typography">Typography</a><ul class="toc-headings"><li><a href="#g-font-size-root"><code>$g-font-size-root</code></a></li><li><a href="#g-font-size-base"><code>$g-font-size-base</code></a></li><li><a href="#g-line-height-base"><code>$g-line-height-base</code></a></li><li><a href="#g-font-size-h1"><code>$g-font-size-h1</code></a></li><li><a href="#g-font-size-h2"><code>$g-font-size-h2</code></a></li><li><a href="#g-font-size-h3"><code>$g-font-size-h3</code></a></li><li><a href="#g-font-size-h4"><code>$g-font-size-h4</code></a></li><li><a href="#g-font-size-h5"><code>$g-font-size-h5</code></a></li><li><a href="#g-font-size-h6"><code>$g-font-size-h6</code></a></li><li><a href="#g-headings-font-family"><code>$g-headings-font-family</code></a></li><li><a href="#g-headings-font-weight"><code>$g-headings-font-weight</code></a></li><li><a href="#g-headings-line-height"><code>$g-headings-line-height</code></a></li><li><a href="#g-headings-margin-bottom"><code>$g-headings-margin-bottom</code></a></li><li><a href="#g-font-size-small"><code>$g-font-size-small</code></a></li><li><a href="#g-font-size-xsmall"><code>$g-font-size-xsmall</code></a></li><li><a href="#g-font-size-2xsmall"><code>$g-font-size-2xsmall</code></a></li><li><a href="#g-font-size-medium"><code>$g-font-size-medium</code></a></li><li><a href="#g-font-size-large"><code>$g-font-size-large</code></a></li><li><a href="#g-font-size-xlarge"><code>$g-font-size-xlarge</code></a></li><li><a href="#g-hr-margin-ends"><code>$g-hr-margin-ends</code></a></li></ul></li><li><a href="#paragraphs">Paragraphs</a><ul class="toc-headings"><li><a href="#g-paragraph-margin-top"><code>$g-paragraph-margin-top</code></a></li></ul></li><li><a href="#spacing">Spacing</a><ul class="toc-headings"><li><a href="#g-base-gap"><code>$g-base-gap</code></a></li><li><a href="#g-gaps"><code>$g-gaps</code></a></li><li><a href="#g-base-padding"><code>$g-base-padding</code></a></li><li><a href="#g-pads"><code>$g-pads</code></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/scss-starter/" class="nav-home"></a><div><h5>Docs</h5><a href="/scss-starter/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/scss-starter/docs/en/doc2.html">Guides (or other categories)</a><a href="/scss-starter/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/scss-starter/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/atolye15" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/scss-starter/blog">Blog</a><a href="https://github.com/atolye15/scss-starter">GitHub</a><a class="github-button" href="https://github.com/atolye15/scss-starter" data-icon="octicon-star" data-count-href="/atolye15/scss-starter/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a><div class="social"><a href="https://twitter.com/atolye15" class="twitter-follow-button">Follow @atolye15</a></div></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/scss-starter/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Atölye15</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
