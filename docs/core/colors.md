@@ -152,7 +152,7 @@ $g-text-muted-color: color-palette('gray', 600) !default;
 
 ### `$g-hr-border-color`
 
-Global body link hover color, this is thee value used in `base/_base.scss`.
+Border color of the `hr` element.
 
 ```scss
 $g-hr-border-color: $g-border-color !default;
