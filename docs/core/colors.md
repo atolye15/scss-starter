@@ -7,7 +7,7 @@ You can find and customize these variables in our `abstracts/_colors.scss` file.
 
 ## Color Palettes
 
-### `$color-palette-gray`
+### `$color-palette-gray`
 
 Gray color palette.
 
@@ -44,7 +44,7 @@ $g-color-palettes: (
 $color-white: #fff;
 ```
 
-### `$color-black`
+### `$color-black`
 
 ```scss
 $color-black: #000;
@@ -76,7 +76,7 @@ Global alert color. This is the value used in the `u-color-alert` and `u-backgro
 $alert-color: #f04124;
 ```
 
-### `$success-color`
+### `$success-color`
 
 Global success color. This is the value used in the `u-color-success` and `u-background-color-success` utility classes.
 
@@ -92,7 +92,7 @@ Global warning color. This is the value used in the `u-color-warning` and `u-bac
 $warning-color: #f08a24;
 ```
 
-### `$info-color`
+### `$info-color`
 
 Global info color.
 
@@ -134,7 +134,7 @@ Color of the `a` element in hover state.
 $g-link-hover-color: darken($g-link-color, 15%) !default;
 ```
 
-### `$g-border-color`
+### `$g-border-color`
 
 Global border color.
 
