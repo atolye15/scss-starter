@@ -72,6 +72,57 @@
   background-color: #e6e6e6;
 }
 
+.layout {
+  width: 16.875rem;
+  margin-bottom: 1rem;
+
+  @include media-breakpoint-down(md) {
+    width: auto;
+  }
+}
+
+.c-example-card {
+  background-color: $color-white;
+  border-radius: 0.25rem;
+  box-shadow: 0.125rem 0.125rem 1rem rgba($color-black, 0.1);
+
+  @include media-breakpoint-down(md) {
+    display: flex;
+    flex-direction: row;
+    margin-top: gap();
+  }
+}
+
+.c-example-card--mobile {
+  display: flex;
+  flex-direction: row;
+  margin-top: gap();
+  margin-bottom: gap();
+}
+
+.c-example-card__header {
+  padding: pad(xsmall);
+  border-bottom: 1px solid color-palette('gray', 100);
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.c-example-card--mobile .c-example-card__header {
+  display: none;
+}
+
+.c-example-card__image {
+  width: 100%;
+  height: 12.5rem;
+  object-fit: cover;
+}
+
+.c-example-card__content {
+  padding: pad(xsmall);
+}
+
 // @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 // }
 
