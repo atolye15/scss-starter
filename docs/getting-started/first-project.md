@@ -24,7 +24,7 @@ You need to set up your global variables prior to starting the project based on 
 
 > Please refer to [colors](core/colors.md) page for further explanation.
 
-In order to create your card component you should start with adding the colors to your `abstracts/_colors.scss` file.
+In order to create your card component, you should start by adding the colors to your `abstracts/_colors.scss` file.
 
 1. Set the primary color variable.
 
