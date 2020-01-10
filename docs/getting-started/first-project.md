@@ -273,7 +273,7 @@ The developed component can be used on the page along with the grid layout.
   </div>
 </div>
 
-> Please refer to [responsive utilities](utilities/responsive.md) page for learning more about responsive utilities. And refer to [grid](layout/grid.md) page for grid system usage.
+> Please refer to [responsive utilities](utilities/responsive.md) page for learning more about responsive utilities. And refer to [grid](layout/grid.md) page for the grid system usage.
 
 ## Making A Component Responsive
 
