@@ -201,7 +201,7 @@ Result:
 
 ## Grid Layout In Action
 
-The developed component can be used in the page along with grid layout.
+The developed component can be used on the page along with the grid layout.
 
 ```html
 <div class="u-padding-bottom-small">
