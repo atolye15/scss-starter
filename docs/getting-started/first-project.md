@@ -100,7 +100,7 @@ $g-headings-line-height: 1.1 !default;
 $g-headings-margin-bottom: 1rem !default;
 ```
 
-> Headings and other html elements can be customized on `base/_base.scss` file. (For example: You can use a customization as shown here to set different line-height values for each heading tags. )
+> Headings and other HTML elements can be customized on `base/_base.scss` file. (For example: You can use customization as shown here to set different line-height values for each heading tags. )
 
 4. Global margin(`$g-gaps`) and padding(`$g-pads`) variables can be customized or increased based on the design's needs. (2xlarge value is added to the map.)
 
