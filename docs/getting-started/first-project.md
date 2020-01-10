@@ -14,7 +14,7 @@ This tutorial introduces you to the essentials of SCSS Starter by walking you th
 
 To get started with SCSS Starter please read the [download](download.md) documentation. In order to start, please copy the `scss` folder into your own development environment.
 
-> The methods we mention in this documentation are based on Atölye15's own experiences over the years. These methods are rather obligations but more of suggestions. You may follow your own ways.
+> The methods we mention in this documentation are based on [Atölye15](https://www.atolye15.com/)'s own experiences over the years. These methods are rather obligations but more of suggestions. You may follow your own ways.
 
 ## Setting Up Global Variables
 
