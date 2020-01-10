@@ -18,7 +18,7 @@ To get started with SCSS Starter please read the [download](download.md) documen
 
 ## Setting Up Global Variables
 
-You need to set your global variables prior to starting the project based on your design's needs.
+You need to set up your global variables prior to starting the project based on your design's needs.
 
 ### Colors
 
