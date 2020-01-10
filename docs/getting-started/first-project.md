@@ -8,7 +8,7 @@ Welcome to SCSS Starter.
 This tutorial introduces you to the essentials of SCSS Starter by walking you through building a simple card.
 
 > New To Web Development?<br><br>
-> There are many resources to complement the SCSS Starter docs. Mozilla's MDN docs includes [css](https://developer.mozilla.org/en-US/docs/Web/CSS) introductions. Get Bem docs includes [bem](http://getbem.com/introduction/) introductions.
+> There are many resources to complement the SCSS Starter docs. Mozilla's MDN docs includes comprehensive [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) documentation and Get BEM docs includes an introduction to [BEM](http://getbem.com/introduction/).
 
 ## Setup
 
