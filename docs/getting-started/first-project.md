@@ -135,7 +135,7 @@ $g-gaps: (
 
 ## Creating A Component
 
-Start developing components after setting the global variables.
+Start developing components after setting up the global variables.
 
 > The following steps use predefined card component from the `c-card.scss` file.
 
