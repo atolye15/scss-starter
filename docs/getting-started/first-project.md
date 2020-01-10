@@ -158,7 +158,7 @@ Start developing components after setting the global variables.
 </div>
 ```
 
-> Since we don't want the tags on **card content** element to be dependent to **the card component**, we have zeroed default margins of h4 and p tags by using utility classes. On the case of not using utility classes; we would need to add `c-card__title` class to h4 element and `c-card__text` class to p element.
+> Since we don't want the tags on **card content** element to be dependent to **the card component**, we have cleared default margins of `h4` and `p` tags by using utility classes. On the case of not using utility classes; we would need to add `c-card__title` class to `h4` element and `c-card__text` class to `p` element.
 
 > By using utility classes there would be no need of creating new class names and it helps the construction to be more flexible.
 
