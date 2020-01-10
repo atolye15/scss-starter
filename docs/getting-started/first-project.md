@@ -80,7 +80,7 @@ $g-font-family-sans-serif: $g-font-family-primary, 'Helvetica Neue', Helvetica, 
 
 > The `$g-font-family-sans-serif` variable sets body's font family.
 
-2. Font sizes are customizable but for the sake of example we are choosing not to.
+2. Font sizes are customizable but for the sake of example, we are choosing not to.
 
 ```scss
 $g-font-size-h1: px-to-rem(36px) !default;
