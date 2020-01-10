@@ -43,7 +43,7 @@ $color-palette-primary: (
 );
 ```
 
-2. To make the newly set color palette avaiable you need to use `color-palette` function. For that add `$color-palette-primary` map variable into `$g-color-palettes` map variable.
+2. To make the newly set color palette available, you need to use `color-palette` function. For that add `$color-palette-primary` map variable into `$g-color-palettes` map variable.
 
 ```scss
 $g-color-palettes: (
