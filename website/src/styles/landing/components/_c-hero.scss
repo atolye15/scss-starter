@@ -8,30 +8,30 @@
 
   &__container {
     position: relative;
-  }
 
-  &__container::before {
-    position: absolute;
-    top: -5vh;
-    display: block;
-    width: 95vmin;
-    height: 97vmin;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    content: '';
+    &::before {
+      position: absolute;
+      top: -5vh;
+      display: block;
+      width: 95vmin;
+      height: 97vmin;
       background-image: url('../img/hero-background.svg');
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      content: '';
 
-    @include media-breakpoint-up(lg) {
-      left: px-to-rem(480px);
-    }
+      @include media-breakpoint-up(lg) {
+        left: px-to-rem(480px);
+      }
 
-    @include media-breakpoint-only(md) {
-      left: 40vw;
-    }
+      @include media-breakpoint-only(md) {
+        left: 40vw;
+      }
 
-    @include media-breakpoint-down(sm) {
-      display: none;
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
     }
   }
 
