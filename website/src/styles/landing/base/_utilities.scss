@@ -1,0 +1,52 @@
+//
+// Utilities
+//
+
+.u-clearfix {
+  @include clearfix;
+}
+
+.u-img-fluid {
+  @include img-fluid;
+}
+
+.u-text-truncate {
+  @include text-truncate;
+}
+
+.u-text-decoration-none\:hover:hover {
+  // stylelint-disable-next-line declaration-no-important
+  text-decoration: none !important;
+}
+
+//
+// Utilities
+//
+
+$margin-utility-values: transform-spaces-map-to-utilty-values(
+  map-merge(
+    (
+      'auto': auto,
+      '0': 0,
+    ),
+    $g-gaps
+  )
+);
+$padding-utility-values: transform-spaces-map-to-utilty-values($g-pads);
+
+$g-utilities: (
+  'color': (
+    property: color,
+    values: (
+      'muted': $g-text-muted-color,
+      'primary': $primary-color,
+      'success': $success-color,
+      'alert': $alert-color,
+      'warning': $warning-color,
+    ),
+  ),
+);
+
+@each $key, $utility in $g-utilities {
+  @include generate-utility($utility, $key);
+}
