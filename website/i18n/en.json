@@ -44,8 +44,8 @@
       "GitHub": "GitHub"
     },
     "categories": {
-      "Getting Started": "Getting Started",
       "Core": "Core",
+      "Getting Started": "Getting Started",
       "Layout": "Layout",
       "Utilities": "Utilities"
     }
