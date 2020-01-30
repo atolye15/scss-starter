@@ -43,7 +43,131 @@ $g-utilities: (
       'success': $success-color,
       'alert': $alert-color,
       'warning': $warning-color,
+      'text': $g-text-color,
     ),
+  ),
+  'background-color': (
+    property: background-color,
+    values: (
+      'primary': $primary-color,
+      'success': $success-color,
+      'alert': $alert-color,
+      'warning': $warning-color,
+      'athens-gray': $athens-gray,
+    ),
+  ),
+  'display': (
+    property: display,
+    values: (
+      value: block,
+      responsive: true,
+    )
+    (
+      value: none,
+      responsive: true,
+    )
+    (
+      value: flex,
+      responsive: true,
+    )
+    inline inline-block table table-row table-cell inline-flex,
+  ),
+  'flex-shrink': (
+    property: flex-shrink,
+    values: 0,
+  ),
+  'justify-content': (
+    property: justify-content,
+    values: space-between,
+  ),
+  'align-items': (
+    property: align-items,
+    values: (
+      value: center,
+      responsive: (
+        md: up,
+      ),
+    ),
+  ),
+  'font-size': (
+    property: font-size,
+    values: (
+      '2xsmall': $g-font-size-2xsmall,
+      'xsmall': $g-font-size-xsmall,
+      'small': $g-font-size-small,
+      'base': $g-font-size-base,
+      'medium': $g-font-size-medium,
+      'large': $g-font-size-large,
+      'xlarge': $g-font-size-xlarge,
+    ),
+  ),
+  'text-align': (
+    property: text-align,
+    values: left right center justify,
+  ),
+  'font-weight': (
+    property: font-weight,
+    values: 300 400 500 600 700,
+  ),
+  'vertical-align': (
+    property: vertical-align,
+    values: top bottom middle baseline text-bottom,
+  ),
+  'margin': (
+    property: margin,
+    values: $margin-utility-values,
+  ),
+  'margin-top': (
+    property: margin-top,
+    values: $margin-utility-values,
+  ),
+  'margin-bottom': (
+    property: margin-bottom,
+    values: $margin-utility-values,
+  ),
+  'margin-left': (
+    property: margin-left,
+    values: $margin-utility-values,
+  ),
+  'margin-right': (
+    property: margin-right,
+    values: $margin-utility-values,
+  ),
+  'margin-sides': (
+    property: margin-left margin-right,
+    values: $margin-utility-values,
+  ),
+  'margin-ends': (
+    property: margin-top margin-bottom,
+    values: $margin-utility-values,
+  ),
+  'padding': (
+    property: padding,
+    values: $padding-utility-values,
+  ),
+  'padding-top': (
+    property: padding-top,
+    values: $padding-utility-values,
+  ),
+  'padding-bottom': (
+    property: padding-bottom,
+    values: $padding-utility-values,
+  ),
+  'padding-left': (
+    property: padding-left,
+    values: $padding-utility-values,
+  ),
+  'padding-right': (
+    property: padding-right,
+    values: $padding-utility-values,
+  ),
+  'padding-sides': (
+    property: padding-left padding-right,
+    values: $padding-utility-values,
+  ),
+  'padding-ends': (
+    property: padding-top padding-bottom,
+    values: $padding-utility-values,
   ),
 );
 

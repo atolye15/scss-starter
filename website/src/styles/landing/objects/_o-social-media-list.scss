@@ -1,0 +1,9 @@
+//
+// Object
+//
+
+.o-social-media-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, gap());
+  grid-gap: px-to-rem(12px);
+}
