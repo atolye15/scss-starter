@@ -74,10 +74,10 @@ color-palette($palette, $weight)
 
 Returns the corresponding color from the color palette
 
-| Parameter  | Type   | Default value | Description                  |
-| ---------- | ------ | ------------- | ---------------------------- |
-| `$palette` | string | gray          | Color palette name           |
-| `$weight`  | number | 100           | Color weight in the pallette |
+| Parameter  | Type   | Default value | Description                 |
+| ---------- | ------ | ------------- | --------------------------- |
+| `$palette` | string | gray          | Color palette name          |
+| `$weight`  | number | 100           | Color weight in the palette |
 
 ## `strip-unit`
 
