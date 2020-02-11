@@ -1,3 +1,4 @@
+@import './contrast';
 //
 // Palettes
 // -------------------------
@@ -29,6 +30,7 @@ $g-color-palettes: (
 
 //
 // Default Colors
+// Use color-white as theme, the text color will be calculated automatically
 //
 
 $color-white: #fff;
@@ -52,12 +54,15 @@ $info-color: #a0d3e8;
 //
 // Project Color Configs
 // -------------------------
-
+// stylelint-disable
 $g-body-bg: $color-white !default;
-$g-text-color: color-palette('gray', 900) !default;
+$g-text-color: choose-contrast-color($color-white, color-palette('gray', 50), color-palette('gray', 900)) !default;
+$g-text-inverse: choose-contrast-color($color-white, color-palette('gray', 900), color-palette('gray', 50)) !default;
 $g-headings-color: inherit !default;
 $g-link-color: $primary-color !default;
 $g-link-hover-color: darken($g-link-color, 15%) !default;
-$g-border-color: color-palette('gray', 100) !default;
-$g-text-muted-color: color-palette('gray', 600) !default;
+$g-border-color: choose-contrast-color($color-white, color-palette('gray', 800), color-palette('gray', 100)) !default;
+$g-border-color-inverse: choose-contrast-color($color-white, color-palette('gray', 100), color-palette('gray', 800)) !default;
+$g-text-muted-color: choose-contrast-color($color-white, color-palette('gray', 200), color-palette('gray', 600)) !default;
+$g-text-muted-color-inverse: choose-contrast-color($color-white, color-palette('gray', 600), color-palette('gray', 200)) !default;
 $g-hr-border-color: $g-border-color !default;

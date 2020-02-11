@@ -28,6 +28,13 @@
   "homepage": "https://github.com/atolye15/scss-starter#readme",
   "devDependencies": {
     "@atolye15/stylelint-config": "^1.3.0",
+    "autoprefixer": "^9.7.4",
+    "gulp": "^4.0.2",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-css-condense": "^1.1.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
     "node-sass": "^4.13.0",
     "prettier": "^1.19.1",
     "stylelint": "^12.0.0",
