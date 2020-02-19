@@ -75,7 +75,7 @@ $g-utilities: (
       'muted': $g-text-muted-color,
       'primary': $color-primary,
       'success': $color-success,
-      'alert': $color-danger,
+      'danger': $color-danger,
       'warning': $color-warning,
     ),
   ),
@@ -84,7 +84,7 @@ $g-utilities: (
     values: (
       'primary': $color-primary,
       'success': $color-success,
-      'alert': $color-danger,
+      'danger': $color-danger,
       'warning': $color-warning,
     ),
   ),

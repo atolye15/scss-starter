@@ -70,7 +70,7 @@ $color-secondary: #e7e7e7;
 
 ### `$color-danger`
 
-Global alert color. This is the value used in the `u-color-danger` and `u-background-color-danger` utility classes.
+Global danger color. This is the value used in the `u-color-danger` and `u-background-color-danger` utility classes.
 
 ```scss
 $color-danger: #f04124;
