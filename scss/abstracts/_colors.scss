@@ -42,21 +42,21 @@ $color-black: #000;
 // Project Colors
 //
 
-$primary-color: #008cba;
-$secondary-color: #e7e7e7;
-$alert-color: #f04124;
-$success-color: #43ac6a;
-$warning-color: #f08a24;
-$info-color: #a0d3e8;
+$color-primary: #008cba;
+$color-secondary: #e7e7e7;
+$color-danger: #f04124;
+$color-success: #43ac6a;
+$color-warning: #f08a24;
+$color-info: #a0d3e8;
 
 //
 // Project Color Configs
 // -------------------------
 
-$g-body-bg: $color-white !default;
+$g-body-background-color: $color-white !default;
 $g-text-color: color-palette('gray', 900) !default;
 $g-headings-color: inherit !default;
-$g-link-color: $primary-color !default;
+$g-link-color: $color-primary !default;
 $g-link-hover-color: darken($g-link-color, 15%) !default;
 $g-border-color: color-palette('gray', 100) !default;
 $g-text-muted-color: color-palette('gray', 600) !default;
