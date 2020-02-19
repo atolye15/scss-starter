@@ -52,62 +52,62 @@ $color-black: #000;
 
 ## Project Colors
 
-### `$primary-color`
+### `$color-primary`
 
 Global primary color. This is the value used in the `u-color-primary` and `u-background-color-primary` utility classes.
 
 ```scss
-$primary-color: #008cba;
+$color-primary: #008cba;
 ```
 
-### `$secondary-color`
+### `$color-secondary`
 
 Global secondary color.
 
 ```scss
-$secondary-color: #e7e7e7;
+$color-secondary: #e7e7e7;
 ```
 
-### `$alert-color`
+### `$color-danger`
 
-Global alert color. This is the value used in the `u-color-alert` and `u-background-color-alert` utility classes.
+Global alert color. This is the value used in the `u-color-danger` and `u-background-color-alert` utility classes.
 
 ```scss
-$alert-color: #f04124;
+$color-danger: #f04124;
 ```
 
-### `$success-color`
+### `$color-success`
 
 Global success color. This is the value used in the `u-color-success` and `u-background-color-success` utility classes.
 
 ```scss
-$success-color: #43ac6a;
+$color-success: #43ac6a;
 ```
 
-### `$warning-color`
+### `$color-warning`
 
 Global warning color. This is the value used in the `u-color-warning` and `u-background-color-warning` utility classes.
 
 ```scss
-$warning-color: #f08a24;
+$color-warning: #f08a24;
 ```
 
-### `$info-color`
+### `$color-info`
 
 Global info color.
 
 ```scss
-$info-color: #a0d3e8;
+$color-info: #a0d3e8;
 ```
 
 ## Project Color Configs
 
-### `$g-body-bg`
+### `$g-body-background-color`
 
 Background color of the `body` element.
 
 ```scss
-$g-body-bg: $color-white !default;
+$g-body-background-color: $color-white !default;
 ```
 
 ### `$g-text-color`
@@ -123,7 +123,7 @@ $g-text-color: color-palette('gray', 900) !default;
 Color of the `a` element.
 
 ```scss
-$g-link-color: $primary-color !default;
+$g-link-color: $color-primary !default;
 ```
 
 ### `$g-link-hover-color`

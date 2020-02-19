@@ -40,7 +40,7 @@ The color utility classes are named using the format `.u-{property}-{color-varia
 - `.u-color-muted`
 - `.u-color-primary`
 - `.u-color-success`
-- `.u-color-alert`
+- `.u-color-danger`
 - `.u-color-warning`
 
 #### Background Colors
