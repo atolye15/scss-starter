@@ -17,11 +17,11 @@
   }
 
   &--primary {
-    background-color: $primary-color;
+    background-color: $color-primary;
     color: $color-white;
 
     &:hover {
-      background-color: $primary-color-hover;
+      background-color: $color-primary-hover;
       color: $color-white;
     }
   }
@@ -31,7 +31,7 @@
     color: $g-headings-color;
 
     &:hover {
-      background-color: $primary-color;
+      background-color: $color-primary;
       color: $color-white;
     }
   }
