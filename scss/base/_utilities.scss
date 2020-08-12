@@ -14,6 +14,10 @@
   @include text-truncate;
 }
 
+.u-visually-hidden {
+  @include visually-hidden;
+}
+
 .u-text-decoration-none\:hover:hover {
   // stylelint-disable-next-line declaration-no-important
   text-decoration: none !important;
