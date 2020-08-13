@@ -21,8 +21,15 @@ Because;
 - It has supportive mixins & functions.
 - Every part of SCSS Starter can be customized based on your project's needs including variables, utilities, a grid system, etc.
 - It is extremely easy to build responsive interfaces without extra effort. All utility classes and a grid system can be extended with responsive variants.
--SCSS Starter doesn't conflict with your own styles, because it doesn't have any styles other than the basics.
+- SCSS Starter doesn't conflict with your own styles, because it doesn't have any styles other than the basics.
 - Utilities, mixins and functions can be extended if needed.
+
+## Quick Start
+
+1. [Download](getting-started/download.md) the repo.
+2. Define the entry point `scss/main.scss` to your Sass compiler.
+3. Update the [colors](core/colors.md) and the [Sass variables](core/variables.md) provided by the SCSS Starter according to the needs of your project.
+4. Start developing 🎉.
 
 ## Browser Support
 

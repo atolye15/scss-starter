@@ -38,11 +38,14 @@ $color-black: #000;
 // Custom Colors
 //
 
+$athens-gray: #f7f7f8;
+
 //
 // Project Colors
 //
 
-$color-primary: #008cba;
+$color-primary: #fe2d5b;
+$color-primary-hover: #e11958;
 $color-secondary: #e7e7e7;
 $color-danger: #f04124;
 $color-success: #43ac6a;
@@ -54,8 +57,8 @@ $color-info: #a0d3e8;
 // -------------------------
 
 $g-body-background-color: $color-white !default;
-$g-text-color: color-palette('gray', 900) !default;
-$g-headings-color: inherit !default;
+$g-text-color: #484851 !default;
+$g-headings-color: #17171b !default;
 $g-link-color: $color-primary !default;
 $g-link-hover-color: darken($g-link-color, 15%) !default;
 $g-border-color: color-palette('gray', 100) !default;

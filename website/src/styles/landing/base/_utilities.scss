@@ -14,10 +14,6 @@
   @include text-truncate;
 }
 
-.u-visually-hidden {
-  @include visually-hidden;
-}
-
 .u-text-decoration-none\:hover:hover {
   // stylelint-disable-next-line declaration-no-important
   text-decoration: none !important;
@@ -39,40 +35,6 @@ $margin-utility-values: transform-spaces-map-to-utilty-values(
 $padding-utility-values: transform-spaces-map-to-utilty-values($g-pads);
 
 $g-utilities: (
-  'float': (
-    property: float,
-    values: left right none,
-  ),
-  'border-radius': (
-    property: border-radius,
-    values: (
-      '50' + quote(\%): 50%,
-    ),
-  ),
-  'position': (
-    property: position,
-    values: static relative,
-  ),
-  'overflow': (
-    property: overflow,
-    values: hidden,
-  ),
-  'table-layout': (
-    property: table-layout,
-    values: fixed,
-  ),
-  'user-select': (
-    property: user-select,
-    values: none,
-  ),
-  'pointer-events': (
-    property: pointer-events,
-    values: none,
-  ),
-  'cursor': (
-    property: cursor,
-    values: pointer,
-  ),
   'color': (
     property: color,
     values: (
@@ -81,6 +43,7 @@ $g-utilities: (
       'success': $color-success,
       'danger': $color-danger,
       'warning': $color-warning,
+      'text': $g-text-color,
     ),
   ),
   'background-color': (
@@ -90,6 +53,7 @@ $g-utilities: (
       'success': $color-success,
       'danger': $color-danger,
       'warning': $color-warning,
+      'athens-gray': $athens-gray,
     ),
   ),
   'display': (
@@ -108,75 +72,21 @@ $g-utilities: (
     )
     inline inline-block table table-row table-cell inline-flex,
   ),
-  'flex': (
-    property: flex,
-    values: 1 none,
-  ),
-  'flex-grow': (
-    property: flex-grow,
-    values: 1,
-  ),
   'flex-shrink': (
     property: flex-shrink,
     values: 0,
   ),
-  'flex-direction': (
-    property: flex-direction,
-    values: row row-reverse column column-reverse,
-  ),
-  'flex-wrap': (
-    property: flex-wrap,
-    values: wrap nowrap wrap-reverse,
-  ),
   'justify-content': (
     property: justify-content,
-    values: flex-start flex-end center space-between space-around,
+    values: space-between,
   ),
   'align-items': (
     property: align-items,
-    values: flex-start flex-end center baseline stretch,
-  ),
-  'align-content': (
-    property: align-content,
-    values: flex-start flex-end center space-between space-around stretch,
-  ),
-  'align-self': (
-    property: align-self,
-    values: auto flex-start flex-end center stretch,
-  ),
-  'max-width': (
-    property: max-width,
     values: (
-      '100' + quote(\%): 100%,
-    ),
-  ),
-  'min-width': (
-    property: min-width,
-    values: (
-      '100' + quote(\%): 100%,
-      '0': 0,
-    ),
-  ),
-  'width': (
-    property: width,
-    values: (
-      '100' + quote(\%):
-        (
-          value: 100%,
-          responsive: true,
-        ),
-      'auto': (
-        value: auto,
-        responsive: true,
+      value: center,
+      responsive: (
+        md: up,
       ),
-      '50' + quote(\%): 50%,
-    ),
-  ),
-  'height': (
-    property: height,
-    values: (
-      '100' + quote(\%): 100%,
-      '100vh': 100vh,
     ),
   ),
   'font-size': (
@@ -191,25 +101,9 @@ $g-utilities: (
       'xlarge': $g-font-size-xlarge,
     ),
   ),
-  'word-break': (
-    property: word-break,
-    values: break-all,
-  ),
-  'white-space': (
-    property: white-space,
-    values: nowrap,
-  ),
-  'text-decoration': (
-    property: text-decoration,
-    values: underline none,
-  ),
   'text-align': (
     property: text-align,
     values: left right center justify,
-  ),
-  'text-transform': (
-    property: text-transform,
-    values: lowercase uppercase capitalize,
   ),
   'font-weight': (
     property: font-weight,

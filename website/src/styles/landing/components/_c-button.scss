@@ -1,0 +1,38 @@
+//
+// Button
+//
+
+.c-button {
+  display: inline-block;
+  padding: pad(xsmall) pad();
+  border: none;
+  border-radius: px-to-rem(4px);
+  font-family: inherit;
+  line-height: 1.5;
+  text-align: center;
+  transition: color, background-color 0.4s;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-primary-hover;
+      color: $color-white;
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: $g-headings-color;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}

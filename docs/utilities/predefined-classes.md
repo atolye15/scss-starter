@@ -40,14 +40,14 @@ The color utility classes are named using the format `.u-{property}-{color-varia
 - `.u-color-muted`
 - `.u-color-primary`
 - `.u-color-success`
-- `.u-color-alert`
+- `.u-color-danger`
 - `.u-color-warning`
 
 #### Background Colors
 
 - `.u-background-color-primary`
 - `.u-background-color-success`
-- `.u-background-color-alert`
+- `.u-background-color-danger`
 - `.u-background-color-warning`
 
 ### Display
@@ -245,3 +245,4 @@ Here are some representative examples of these classes:
 - `.u-clearfix` - Clear any floats within an element. Can also be used as a mixin. `@include clearfix`
 - `.u-img-fluid` - Responsive images (ensure images don't scale beyond their parents)
 - `.u-text-truncate` - For longer content, you can add this class to truncate the text with an ellipsis. Requires `display: inline-block` or `display: block`. Can also be used as a mixin. `@include text-truncate`
+- `.u-visually-hidden` - Hides content visually, but it will remain available to assistive technologies. Can also be used as a mixin. `@include visually-hidden`
